@@ -1,0 +1,4 @@
+1.  Ubah beberapa button selain search button dengan <a>.
+    Ganti display <a>-nya dengan block.
+    Sesuaikan css-nya.
+2.  Riset tentang JS DOM untuk merevisi search-border

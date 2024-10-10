@@ -90,7 +90,7 @@ $ git push		=> mengirim commit di local ke GITHUB
 	  $ git fetch	=> mencek repo di remote (github) sudah sampai mana commitnya
 	  $ git pull	=> ambil commit dari repo ke local	(butuh message???)
 			   untuk nantinya dibandingkan
-
+$ git push -u origin <nama-branch>	=> mengirim commit di branch local ke branch GITHUB
 
 
 

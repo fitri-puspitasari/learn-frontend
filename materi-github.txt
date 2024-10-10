@@ -1,0 +1,117 @@
+Sumber Belajar	: 
+WPU Playlist GIT & GITHUB
+https://www.youtube.com/playlist?list=PLFIM0718LjIVknj6sgsSceMqlq242-jNf
+
+Catatan	:
+Version Control System	=> Sistem yang menyimpan dan mengelola rekaman perubahan dari source code
+GIT		=> Salah satu software yang bisa melakukan VCS
+GITHUB		=> Layanan cloud untuk menyimpan & mengelola project/repo git
+Repositopy/repo	=> Folder projek kita
+Commit		=> Rekaman / snapshot dari repo kita
+Hash		=> Penanda unik pada sebuah commit
+Checkout	=> Berpindah ke sebuah commit
+Branch		=> Percabangan commit dalam 1 repo (cabang bebas dari sebuah commit)
+Merge		=> Penggabungan 2 atau lebih branch
+Remote		=> Sumber yang memiliki repo
+Clone		=> Mengambil repo dari remote ke local
+Push		=> Mengirim source code / projek / repo (dalam bentuk commit) dari local ke GITHUB
+Pull		=> Menerima source code / projek / repo (dalam bentuk commit) dari GITHUB ke local
+Fork		=> Menduplikat repository + histori milik orang lain ke repository kita (diberi credit oleh github)
+Head (pada GIT)	=> Menunjukkan repository mana yang sedang digunakan atau aktif
+
+Buku GIT :
+https://git-scm.com/book/en/v2	(inggris)
+https://git-scm.com/book/id/v2	(indonesia)
+
+Console GIT :
+$ git init		=> inisialisasi repo
+$ git add <file(s)>	=> menambah file di staging area & update modify file ke staging area
+$ git add .			=> semua yang nambah, hilang, edit masuk ke staging area
+	* file untrack harus di-add dulu. file modify saja boleh langsung di-commit :
+	  $ git commit -am "<pesan commit>"
+$ git rm --cached <file>...	=> mengeluarkan file dari staging area
+$ git checkout -- <file>...	=> discard changes in working directory (hasil checkout masuk ke staging area)
+$ git checkout <5-code-hash>	=> mengembalikan perubahan yang sudah di-commit
+	- c/ $ git checkout 54766	(cek code hash di $ git log)
+$ git checkout <5-code-hash> -- <file-name>	=> mengembalikan perubahan pada file tertentu yang sudah di-commit
+	- c/ $ git checkout 54766 -- style.css
+$ git status		=> status repo (c/ ada yang baru? berubah? hilang?)
+$ git commit		=> melakukan commit
+	- untuk awal, git commit tidak bisa dilakukan karena belum menyatakan kita siapa
+	  masukkan dulu nama kita :
+	  $ git config --global user.name "Fitri Puspitasari"
+	  $ git config --global user.email "fitripuspitasari132@gmail.com"
+	  data kita sama dengan data GITHUB
+	- ketika melakukan commit, tambahkan pesan commit-nya
+	  $ git commit -m "Menambahkan file index.html"
+	- untuk melakukan commit pada file yang isinya dimodifikasi saja, bisa langsung
+	  $ git commit -am "Mengubah file index.html"
+$ git log		=> melihat semua commit-commit apa saja yang sudah dilakukan
+$ git log -<jumlah commit>	=> melihat commit-commit apa saja yang sudah dilakukan dengan jumlah tertentu
+	- c/ $ git log -3	=> menampilkan 3 commit
+$ git log -- <file-name>	=> melihat commit-commit apa saja yang sudah dilakukan pada file tertentu
+	- c/ $ git log -- style.css	=> menampilkan commit-commit pada file style.css
+$ git config		=> melakukan configurasi
+$ git branch		=> membuat branch
+$ git help		=> help
+$ pwd			=> melihat folder mana yang sedang aktif pada gitbash (directory)
+$ ls			=> file & folder apa saja yang ada di directory tersebut
+$ cd			=> masuk ke folder
+$ clear			=> membersihkan terminal
+$ mkdir			=> buat folder baru
+$ rm -rf <folder-name>	=> hapus folder
+$ touch			=> membuat file
+$ rm <file-name>	=> hapus file
+$ code .		=> open folder in Visual Studio Code
+$ git branch		=> menampilkan branch apa saja yang ada
+$ git branch <nama-branch>	=> membuat branch baru
+$ git log --all --decorate --oneline --graph	=> menampilkan visualisasi branch dalam bentuk draf
+	- perintah ini terlalu panjang. untuk mengefektifkan perintah, buat alias
+	  $ alias graph="git log --all --decorate --oneline --graph"
+	  untuk memanggilnya tinggal gunakan :
+	  $ graph
+$ git checkout <nama-branch>	=> pindah branch
+$ git checkout <7-code-hash>	=> menuju branch yang sebelumnya dihapus
+	- c/ $ git checkout dd547b6	(dd547b6... adalah hash commit "menambahkan file dosen.html" di branch dosen
+	  perintah ini membuah HEAD berpindah ke commit yang isinya file2 dalam branch dosen
+	  jika commit ini ingin dijadikan branch lagi :
+	  $ git branch <nama-branch>	=> membuat branch baru
+	  $ git checkout <nama-branch>	=> pindah ke branch baru tersebut
+$ git merge <nama-branch>	=> menggabungkan branch yang sedang aktif dengan branch yang ditulis setelah 'git merge'
+$ git branch -d <nama-branch>	=> menghapus branch
+	- jika branch yang akan dihapus belum di-merge namun tetap yakin ingin dihapus, gunakan :
+	  $ git branch -D <nama-branch>
+$ git branch --merged		=> menampilkan branch yang sudah di-merge
+$ git clone <link-https-repo-github>	=> meng-clone repo di GITHUB ke local, terhubung secara remote
+$ git remote		=> menampilkan nama remote (default: "origin")
+$ git remote -v		=> menampilkan detail tentang remote tersebut
+$ git push		=> mengirim commit di local ke GITHUB
+	- jika saay dipush terdapat konflik, maka lakukan :
+	  $ git fetch	=> mencek repo di remote (github) sudah sampai mana commitnya
+	  $ git pull	=> ambil commit dari repo ke local	(butuh message???)
+			   untuk nantinya dibandingkan
+
+
+
+
+
+
+'\ '	=> spasi pada file atau folder
+
+3 area pada repo GIT :
+- working tree	=> folder tempat kita bekerja
+- staging area	=> memberitahu git bahwa kita sedang melakukan perubahan
+- history	=> kalau sudah commit, masuk ke dalam history
+
+Simbol di sampil file di VCS :
+A -> Added
+M -> Modified
+D -> Deleted
+U -> Untracked
+C -> Conflict
+R -> Renamed
+
+Jenis Merge :
+Fast Forward	=> terjadi ketika branch yang ingin kita gabungkan berada dalam jalur langsung atau direct path
+Three-way Merge	=> terjadi ketika branch yang ingin kita gabungkan tidak berada dalam direct path, sambil di-merge sambil bikin commit baru
+

@@ -1,4 +1,4 @@
-1.  Ubah beberapa button selain search button dengan <a>.
-    Ganti display <a>-nya dengan block.
-    Sesuaikan css-nya.
-2.  Riset tentang JS DOM untuk merevisi search-border
+----- header -----
+
+1.  Riset tentang JS DOM untuk merevisi search-border
+2.  Fitur dropdown dari button header

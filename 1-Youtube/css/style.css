@@ -1,13 +1,22 @@
-
+:root {
+    --black: #0F0F0F;
+    --dark-grey: #222222;
+    --light-grey-1: #272727;    /*  hover */
+    --light-grey-2: #303030;    /*  border*/  
+    --light-grey-3: #3D3D3D;    /*  hover actived / hover click */
+    --light-grey-4: #505050;    /*  hover actived click*/  
+    --scroll-color: #717171;
+    --white: #ffffff;
+}
 
 body {
-    /* background-color: black; */
+    /* background-color: var(--black); */
     color: white;
     font-family: "Roboto", sans-serif;
 }
 
 .icon-button {
-    background-color: #000000;
+    background-color: var(--black);
     border: none;
     border-radius: 99px;
     width: 40px;
@@ -15,11 +24,11 @@ body {
 }
 
 .icon-button:hover {
-    background-color: #222222;
+    background-color: var(--dark-grey);
 }
 
 .icon-button i {
-    color: white;
+    color: var(--white);
     font-size: 1.2rem;
 }
 
@@ -28,7 +37,7 @@ body {
 header {
     height: 56px;
     padding-inline: 16px;
-    background-color: black;
+    background-color: var(--black);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -99,22 +108,22 @@ header {
 .inner-search-border input {
     width: 351px;
     height: 38px;
-    background-color: black;
+    background-color: var(--black);
     border: none;
 }
 
 .search-form button {
-    background-color: #222222;
+    background-color: var(--dark-grey);
     width: 64px;
     padding-inline: 6px;
     border-radius: 0px 20px 20px 0px;
-    border-top: 1px solid #303030;
-    border-bottom: 1px solid #303030;
-    border-right: 1px solid #303030;
+    border-top: 1px solid var(--light-grey-2);
+    border-bottom: 1px solid var(--light-grey-2);
+    border-right: 1px solid var(--light-grey-2);
 }
 
 .voice-button {
-    background-color: #222222;
+    background-color: var(--dark-grey);
 }
 
 /* ---- Center ---- */

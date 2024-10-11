@@ -1,6 +1,22 @@
------ header -----
+======== header ========
+-   perbaikan search-bar
+    ketika input diklik, tidak ada border pada input & inner-search-border, muncul border pada outer-search-border
+    solusi: gunakan javascript
 
-1.  Riset tentang JS DOM untuk merevisi search-border
-2.  Fitur dropdown dari button header
+======== nav aside ========
+1.   mengerjakan small-nav-content
 
------ nav-content -----
+
+======== nav aside ========
+2.  mengerjakan tab-filter. fitur filter video di bawah header
+
+
+======== content ========
+3.  mengerjakan tampilan content
+
+
+======== responsive ========
+-   mengatur z index
+    urutan z index dari yang paling atas :
+    tampilan pc          : dropdown => large-nav-content => header => small-nav-content & content
+    lebih kecil dari pc  : dropdown => header => large-nav-content => small-nav-content & content

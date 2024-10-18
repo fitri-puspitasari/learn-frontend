@@ -127,7 +127,11 @@ header {
 }
 
 .voice-button {
-    background-color: var(--dark-grey);
+    background-color: var(--light-grey-1);
+}
+
+.voice-button:hover {
+    background-color: var(--light-grey-3);
 }
 
 /* ---- Center ---- */
@@ -162,6 +166,9 @@ header {
 .nav-content {
     max-height: calc(100% - 60px);
     overflow-y: scroll;
+    scrollbar-color: #717171 transparent;     /* hover */
+    /* scrollbar-color: transparent transparent;   normal */
+    scrollbar-width: thin;
 }
 
 .large-nav-content nav {
@@ -217,6 +224,24 @@ header {
     padding-top: 12px;
 }
 
+/* pengaturan hover sementara (diperbaiki dg JS) */
+.nav-content .main-nav li:first-child {
+    background-color: var(--light-grey-1);
+    border-radius: 10px;
+}
+
+.nav-content .main-nav li:first-child:hover {
+    background-color: var(--light-grey-3);
+    /* border-radius: 10px; */
+}
+
+.nav-content nav li:hover {
+    background-color: var(--light-grey-1);
+    border-radius: 10px;
+}
+/* pengaturan hover sementara */
+
+
 footer .links-footer {
     padding: 16px 24px 0px;
 }
@@ -225,7 +250,7 @@ footer .links-footer a {
     display: inline;
     margin-right: 8px;
     color: var(--grey-text-color);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 
 footer .copyrigth {

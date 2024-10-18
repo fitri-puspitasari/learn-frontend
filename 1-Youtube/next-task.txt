@@ -7,7 +7,7 @@
 1.   mengerjakan small-nav-content
 
 
-======== nav aside ========
+======== nav ========
 2.  mengerjakan tab-filter. fitur filter video di bawah header
 
 
@@ -20,3 +20,12 @@
     urutan z index dari yang paling atas :
     tampilan pc          : dropdown => large-nav-content => header => small-nav-content & content
     lebih kecil dari pc  : dropdown => header => large-nav-content => small-nav-content & content
+
+
+======== javascript ========
+-   fitur header
+-   semua fitur hover button
+-   nav aside - large : hover => scrolbar terlihat
+                        background-color li (hover & tidak) tergantung halaman mana yg aktif
+-   icon nav kiri kalau aktif berubah
+

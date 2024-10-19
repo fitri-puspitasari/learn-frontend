@@ -1,18 +1,26 @@
+///======== content ========\\\
+urutan depth - paling depan ke belakang
+- dropdown header
+- header
+- nav-aside (large & small)
+- tags 
+- content
+
+
+
+
 ======== header ========
 -   perbaikan search-bar
     ketika input diklik, tidak ada border pada input & inner-search-border, muncul border pada outer-search-border
     solusi: gunakan javascript
 
-======== nav aside ========
-1.   mengerjakan small-nav-content
-
 
 ======== nav ========
-2.  mengerjakan tab-filter. fitur filter video di bawah header
+1.  mengerjakan tab-filter. fitur filter video di bawah header
 
 
 ======== content ========
-3.  mengerjakan tampilan content
+2.  mengerjakan tampilan content
 
 
 ======== responsive ========
@@ -28,4 +36,7 @@
 -   nav aside - large : hover => scrolbar terlihat
                         background-color li (hover & tidak) tergantung halaman mana yg aktif
 -   icon nav kiri kalau aktif berubah
-
+-   scroll tags : 
+    -   fungsi .scroll-button => mengubah x .tag-button-container
+    -   saat .scroll-button hover => .cover-scroll-icon display: block;
+    -   tampil tidaknya .scroll-button bergantung pada status x dari tag-container

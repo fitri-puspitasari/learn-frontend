@@ -6,6 +6,8 @@
     --light-grey-3: #3D3D3D;    /*  hover actived / hover click */
     --light-grey-4: #505050;    /*  hover actived click*/  
     --scroll-color: #717171;
+    --grey-text-color: #AAAAAA;
+    --white-text-color: #F1F1F1;
     --white: #ffffff;
 }
 
@@ -32,12 +34,18 @@ body {
     font-size: 1.2rem;
 }
 
+a {
+    text-decoration: none;
+}
+
+
 /* ============ Header ============ */
 
 header {
     height: 56px;
     padding-inline: 16px;
     background-color: var(--black);
+    /* background-color: purple; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -77,10 +85,6 @@ header {
 .search-container form {
     display: flex;
 }
-
-/* !!!!====== PERLU DIPERBAIKI =====!!!! */
-/* ketika input diklik, tidak ada border pada input & inner-search-border, muncul border pada outer-search-border */
-/* solusi: gunakan javascript */
 
 .outer-search-border {
     display: flex;
@@ -123,7 +127,11 @@ header {
 }
 
 .voice-button {
-    background-color: var(--dark-grey);
+    background-color: var(--light-grey-1);
+}
+
+.voice-button:hover {
+    background-color: var(--light-grey-3);
 }
 
 /* ---- Center ---- */
@@ -139,3 +147,181 @@ header {
 
 
 /* ============ Main ============ */
+
+/* ============ nav-content ============ */
+/* ---- large-nav-content ---- */
+
+.large-nav-content {
+    width: 229px;
+    height: 100vh;
+    background-color: var(--black);
+    position: fixed;
+    top: 0;
+}
+
+/* .large-nav-content {
+    z-index: -99;
+} */
+
+.nav-content {
+    max-height: calc(100% - 60px);
+    overflow-y: scroll;
+    scrollbar-color: #717171 transparent;     /* hover */
+    /* scrollbar-color: transparent transparent;   normal */
+    scrollbar-width: thin;
+}
+
+.large-nav-content nav {
+    padding: 16px;
+}
+
+.large-nav-content nav:nth-child(n+2) {
+    border-bottom: 0.5px solid var(--light-grey-2);
+}
+
+.large-nav-content li {
+    list-style-type: none;
+    padding-inline: 12px;
+}
+
+.large-nav-content a {
+    height: 40px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.large-nav-content h3,
+.large-nav-content p,
+.large-nav-content a {
+    color: var(--white-text-color);
+}
+
+.large-nav-content .icon-nav {
+    width: 24px;
+    height: 24px;
+}
+
+.large-nav-content svg {
+    fill: var(--white);
+}
+
+.large-nav-content img {
+    width: 24px;
+    border-radius: 50%;
+}
+
+.large-nav-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+
+.user-nav li:first-child {
+    border-top: 0.5px solid var(--light-grey-2);
+    padding-top: 12px;
+}
+
+/* pengaturan hover sementara (diperbaiki dg JS) */
+.nav-content .main-nav li:first-child {
+    background-color: var(--light-grey-1);
+    border-radius: 10px;
+}
+
+.nav-content .main-nav li:first-child:hover {
+    background-color: var(--light-grey-3);
+    /* border-radius: 10px; */
+}
+
+.nav-content nav li:hover {
+    background-color: var(--light-grey-1);
+    border-radius: 10px;
+}
+/* pengaturan hover sementara */
+
+
+footer .links-footer {
+    padding: 16px 24px 0px;
+}
+
+footer .links-footer a {
+    display: inline;
+    margin-right: 8px;
+    color: var(--grey-text-color);
+    font-size: 0.75rem;
+}
+
+footer .copyrigth {
+    padding: 16px 24px;
+}
+
+footer .copyrigth p{
+    color: var(--light-grey-4);
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+/* logo-container like left side header */
+.large-nav-content .logo-container img {
+    width: 28.39px;
+    border-radius: 0;
+}
+.large-nav-content .logo-container {
+    padding-inline: 16px;
+}
+
+
+
+/* ============ nav-content ============ */
+/* ---- large-nav-content ---- */
+
+/* test */
+.large-nav-content {
+    display: none;
+}
+
+.small-nav-content {
+    width: 64px;
+    height: 100vh;
+    background-color: var(--black);
+    position: fixed;
+    top: 56px;
+    padding-inline: 4px;
+}
+
+.small-nav-content li {
+    width: 64px;
+    height: 44px;
+    list-style-type: none;
+    padding-block: 16px;
+    border-radius: 10px;
+}
+
+.small-nav-content li:hover {
+    background-color: var(--light-grey-2);
+}
+
+.small-nav-content .icon-nav {
+    width: 24px;
+    height: 24px;
+}
+
+.small-nav-content p {
+    font-size: 0.65rem;
+    margin: 0;
+}
+
+.small-nav-content a,
+.small-nav-content p {
+    color: var(--white-text-color);
+}
+
+.small-nav-content a {
+    /* height: 40px; */
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}

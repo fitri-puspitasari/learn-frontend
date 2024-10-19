@@ -86,12 +86,11 @@ $ git clone <link-https-repo-github>	=> meng-clone repo di GITHUB ke local, terh
 $ git remote		=> menampilkan nama remote (default: "origin")
 $ git remote -v		=> menampilkan detail tentang remote tersebut
 $ git push		=> mengirim commit di local ke GITHUB
-	- jika saay dipush terdapat konflik, maka lakukan :
+	- jika saat dipush terdapat konflik, maka lakukan :
 	  $ git fetch	=> mencek repo di remote (github) sudah sampai mana commitnya
 	  $ git pull	=> ambil commit dari repo ke local	(butuh message???)
 			   untuk nantinya dibandingkan
-git push -u origin <branch>	=> mengirim commit local yg aktif ke branch tertentu
-
+$ git push -u origin <nama-branch>	=> mengirim commit di branch local ke branch GITHUB
 
 
 

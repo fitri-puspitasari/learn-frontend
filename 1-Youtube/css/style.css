@@ -271,3 +271,57 @@ footer .copyrigth p{
 .large-nav-content .logo-container {
     padding-inline: 16px;
 }
+
+
+
+/* ============ nav-content ============ */
+/* ---- large-nav-content ---- */
+
+/* test */
+.large-nav-content {
+    display: none;
+}
+
+.small-nav-content {
+    width: 64px;
+    height: 100vh;
+    background-color: var(--black);
+    position: fixed;
+    top: 56px;
+    padding-inline: 4px;
+}
+
+.small-nav-content li {
+    width: 64px;
+    height: 44px;
+    list-style-type: none;
+    padding-block: 16px;
+    border-radius: 10px;
+}
+
+.small-nav-content li:hover {
+    background-color: var(--light-grey-2);
+}
+
+.small-nav-content .icon-nav {
+    width: 24px;
+    height: 24px;
+}
+
+.small-nav-content p {
+    font-size: 0.65rem;
+    margin: 0;
+}
+
+.small-nav-content a,
+.small-nav-content p {
+    color: var(--white-text-color);
+}
+
+.small-nav-content a {
+    /* height: 40px; */
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}

@@ -5,6 +5,9 @@ const addFormContainer = document.querySelector('.add-form-container');
 const searchForm = document.querySelector('.search-form-container');
 const menu = document.querySelector('.menu');
 const addForm = document.querySelector('#bookForm');
+// const checkButton = document.querySelectorAll('.check-button');
+// const uncheckButton = document.querySelectorAll('.uncheck-button');
+
 
 let bookData = [];
 
@@ -84,4 +87,35 @@ function resetForm() {
     document.getElementById('bookFormYear').value = '';
     document.getElementById('bookFormIsComplete').checked = false;
 }
+
+// ------ tombol check book info hover ------
+
+
+// console.log(checkButton)
+// if (checkButton) {
+//     checkButton.forEach(button => {
+//         button.innerHTML = '<i class="fa-solid fa-circle-check"></i>'
+//         button.addEventListener('mouseover', function (e) {
+//             button.innerHTML = '<i class="fa-solid fa-circle"></i>'
+//         });
+//         button.addEventListener('mouseout', function (e) {
+//             button.innerHTML = '<i class="fa-solid fa-circle-check"></i>'
+//         });
+        
+//     });
+// }
+
+// if(uncheckButton) {
+//     uncheckButton.forEach(button => {
+//         button.innerHTML = '<i class="fa-solid fa-circle"></i>'
+//         button.addEventListener('mouseover', function (e) {
+//             button.innerHTML = '<i class="fa-solid fa-circle-check"></i>'
+//         });
+//         button.addEventListener('mouseout', function (e) {
+//             button.innerHTML = '<i class="fa-solid fa-circle"></i>'
+//         });
+//     });
+
+// }
+
 

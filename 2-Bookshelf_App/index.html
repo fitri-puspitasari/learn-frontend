@@ -78,18 +78,34 @@
         </section>
       </div>
       
-      <div class="folder-container">
+      <div class="booklist-container">
         <section class="card">
           <h2>Belum selesai dibaca</h2>
           <div id="incompleteBookList" data-testid="incompleteBookList">
-            <div data-bookid="123123123" data-testid="bookItem">
-              <h3 data-testid="bookItemTitle">Judul Buku 1</h3>
-              <p data-testid="bookItemAuthor">Penulis: Penulis Buku 1</p>
-              <p data-testid="bookItemYear">Tahun: 2030</p>
-              <div>
-                <button data-testid="bookItemIsCompleteButton">Selesai dibaca</button>
-                <button data-testid="bookItemDeleteButton">Hapus Buku</button>
-                <button data-testid="bookItemEditButton">Edit Buku</button>
+
+            <div class="book-detail" data-bookid="123123123" data-testid="bookItem">
+              <div class="book-info">
+                <h3 data-testid="bookItemTitle">Judul Buku 1</h3>
+                <p data-testid="bookItemAuthor"><span class="key">Penulis</span>: Penulis Buku 1</p>
+                <p data-testid="bookItemYear"><span class="key">Tahun</span>: 2030</p>
+              </div>
+              <div class="book-info-buttons">
+                <button title="Tandai selesai dibaca" data-testid="bookItemIsCompleteButton"><i class="fa-solid fa-circle-check"></i></button>
+                <button title="Hapus" data-testid="bookItemDeleteButton"><i class="fa-solid fa-trash"></i></button>
+                <button title="Edit" data-testid="bookItemEditButton"><i class="fa-solid fa-pen-to-square"></i></button>
+              </div>
+            </div>
+
+            <div class="book-detail" data-bookid="123123123" data-testid="bookItem">
+              <div class="book-info">
+                <h3 data-testid="bookItemTitle">Judul Buku 1</h3>
+                <p data-testid="bookItemAuthor"><span class="key">Penulis</span>: Penulis Buku 1</p>
+                <p data-testid="bookItemYear"><span class="key">Tahun</span>: 2030</p>
+              </div>
+              <div class="book-info-buttons">
+                <button title="Tandai selesai dibaca" data-testid="bookItemIsCompleteButton"><i class="fa-solid fa-circle-check"></i></button>
+                <button title="Hapus" data-testid="bookItemDeleteButton"><i class="fa-solid fa-trash"></i></button>
+                <button title="Edit" data-testid="bookItemEditButton"><i class="fa-solid fa-pen-to-square"></i></button>
               </div>
             </div>
           </div>
@@ -98,21 +114,50 @@
         <section class="card">
           <h2>Selesai dibaca</h2>
           <div id="completeBookList" data-testid="completeBookList">
-            <div data-bookid="456456456" data-testid="bookItem">
-              <h3 data-testid="bookItemTitle">Judul Buku 2</h3>
-              <p data-testid="bookItemAuthor">Penulis: Penulis Buku 2</p>
-              <p data-testid="bookItemYear">Tahun: 2030</p>
-              <div>
-                <button data-testid="bookItemIsCompleteButton">Selesai dibaca</button>
-                <button data-testid="bookItemDeleteButton">Hapus Buku</button>
-                <button data-testid="bookItemEditButton">Edit Buku</button>
+
+            <div class="book-detail" data-bookid="456456456" data-testid="bookItem">
+              <div class="book-info">
+                <h3 data-testid="bookItemTitle">Judul Buku 2</h3>
+                <p data-testid="bookItemAuthor"><span class="key">Penulis</span>: Penulis Buku 2</p>
+                <p data-testid="bookItemYear"><span class="key">Tahun</span>: 2030</p>  
+              </div>
+              <div class="book-info-buttons">
+                <button title="Tandai belum selesai dibaca" data-testid="bookItemIsCompleteButton"><i class="fa-solid fa-circle-xmark"></i></button>
+                <button title="Hapus" data-testid="bookItemDeleteButton"><i class="fa-solid fa-trash"></i></button>
+                <button title="Edit" data-testid="bookItemEditButton"><i class="fa-solid fa-pen-to-square"></i></button>
               </div>
             </div>
+
+            <div class="book-detail" data-bookid="123123123" data-testid="bookItem">
+              <div class="book-info">
+                <h3 data-testid="bookItemTitle">Judul Buku 2</h3>
+                <p data-testid="bookItemAuthor"><span class="key">Penulis</span>: Penulis Buku 2</p>
+                <p data-testid="bookItemYear"><span class="key">Tahun</span>: 2030</p>  
+              </div>
+              <div class="book-info-buttons">
+                <button title="Tandai belum selesai dibaca" data-testid="bookItemIsCompleteButton"><i class="fa-solid fa-circle-xmark"></i></button>
+                <button title="Hapus" data-testid="bookItemDeleteButton"><i class="fa-solid fa-trash"></i></button>
+                <button title="Edit" data-testid="bookItemEditButton"><i class="fa-solid fa-pen-to-square"></i></button>
+              </div>
+            </div>
+
+            <div class="book-detail" data-bookid="123123123" data-testid="bookItem">
+              <div class="book-info">
+                <h3 data-testid="bookItemTitle">Judul Buku 2</h3>
+                <p data-testid="bookItemAuthor"><span class="key">Penulis</span>: Penulis Buku 2</p>
+                <p data-testid="bookItemYear"><span class="key">Tahun</span>: 2030</p>  
+              </div>
+              <div class="book-info-buttons">
+                <button title="Tandai belum selesai dibaca" data-testid="bookItemIsCompleteButton"><i class="fa-solid fa-circle-xmark"></i></button>
+                <button title="Hapus" data-testid="bookItemDeleteButton"><i class="fa-solid fa-trash"></i></button>
+                <button title="Edit" data-testid="bookItemEditButton"><i class="fa-solid fa-pen-to-square"></i></button>
+              </div>
+            </div>
+
           </div>
         </section>
-      </main>
       </div>
-      
+    </main>
 
 
 

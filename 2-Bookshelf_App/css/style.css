@@ -68,6 +68,8 @@ header {
     z-index: 5;
 }
 
+/* ------ welcome-menu ------ */
+
 .welcome-menu-buttons {
 
     display: flex;
@@ -99,6 +101,8 @@ header {
     font-size: 1.5rem;
 }
 
+/* ------ form-container ------ */
+
 .form-container {
     position: absolute;
     top: 100px;
@@ -111,9 +115,7 @@ header {
 
 .form-container {
     transition: all 0.5s;
-
 }
-
 
 .form-container h2 {
     margin-bottom: 20px;
@@ -127,8 +129,6 @@ header {
 .form-container form label {
     font-size: 1.1rem;
 }
-
-
 
 .form-container form div:nth-child(-n + 3) {
     display: flex;
@@ -171,11 +171,6 @@ header {
     /* color: #eebbc3; */
     color: #232946;
     background-color: #eebbc3;
-
-}
-
-.folder-container {
-    opacity: 0;
 }
 
 .form-container,
@@ -184,10 +179,88 @@ header {
     display: none;
 }
 
+/* ------ booklist-container ------ */
+
+.booklist-container {
+    opacity: 0;
+    margin-inline: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.booklist-container section {
+    width: 100%;
+    height: fit-content;
+}
+
+.booklist-container h2,
+.booklist-container h3,
+.booklist-container p {
+    text-transform: capitalize;
+}
+
+.booklist-container h2 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.booklist-container .book-info > * {
+    margin-bottom: 10px;
+}
+
+.booklist-container .book-detail {
+    border-top: 1px solid #232946;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.booklist-container .book-detail:last-child {
+    border-bottom: 1px solid #232946;
+    /* padding: 20px; */
+}
+
+.booklist-container .key {
+    display: inline-block;
+    width: 60px;
+}
+
+.book-info-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: start;
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+}
+
+.book-info-buttons button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.15rem;
+    color: #b8c1ec
+}
+
+.book-info-buttons button:hover {
+    color: #232946;
+    font-size: 1.3rem;
+}
+
+.book-info-buttons button:focus {
+    color: #eebbc3;
+}
+
+
+
+
+
 
 
 /* TEST */
-
+.booklist-container {
+    opacity: 1;
+}
 
 
 

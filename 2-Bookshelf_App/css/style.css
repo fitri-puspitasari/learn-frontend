@@ -51,8 +51,12 @@ input[type="checkbox"]:not(:disabled):checked {
     text-transform: capitalize;
 }
 
-main {
-    margin-bottom: 30px;
+.main-footer {
+    height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    /* gap: 30px; */
+    justify-content: space-between;
 }
 
 header {
@@ -295,6 +299,7 @@ footer {
     text-align: center;
     background-color: #232946;
     color: #fffffe;
+    margin-top: 50px;
     /* left: 0;
     right: 0;
     bottom: 0;
@@ -311,11 +316,6 @@ footer a:hover {
     text-decoration: underline;
 }
 
-
-/* TEST */
-.booklist-container {
-    opacity: 1;
-}
 
 
 

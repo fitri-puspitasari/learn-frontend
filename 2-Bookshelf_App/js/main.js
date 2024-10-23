@@ -5,6 +5,7 @@ const addFormContainer = document.querySelector('.add-form-container');
 const searchForm = document.querySelector('.search-form-container');
 const menu = document.querySelector('.menu');
 const addForm = document.querySelector('#bookForm');
+const bookListContainer = document.querySelector('.booklist-container');
 const incompleteBookList = document.querySelector('#incompleteBookList');
 const completeBookList = document.querySelector('#completeBookList');
 const editFormContainer = document.querySelector('.edit-form');
@@ -15,14 +16,14 @@ const editForm = document.querySelector('#editBookForm');
 
 
 
-// let bookData = [];
-let bookData = [
-    {id: 1111111111111, title: 'Juz Amma', authors: 'Imam Yasir', year: '2008', isCompleted: 'off'},
-    {id: 2222222222222, title: 'Habibie & ainun', authors: 'Habibie', year: '2013', isCompleted: 'off'},
-    {id: 3333333333333, title: 'smart parenting', authors: 'Tania Saraswati M.Psi.', year: '2024', isCompleted: 'on'},
-    {id: 4444444444444, title: 'Ayah', authors: 'Sandi Alamsyah', year: '2023', isCompleted: 'on'},
-    {id: 5555555555555, title: 'Aneka Ikan', authors: 'Bendi Ahmad', year: '2019', isCompleted: 'on'},
-];
+let bookData = [];
+// let bookData = [
+//     {id: 1111111111111, title: 'Juz Amma', authors: 'Imam Yasir', year: '2008', isCompleted: 'off'},
+//     {id: 2222222222222, title: 'Habibie & ainun', authors: 'Habibie', year: '2013', isCompleted: 'off'},
+//     {id: 3333333333333, title: 'smart parenting', authors: 'Tania Saraswati M.Psi.', year: '2024', isCompleted: 'on'},
+//     {id: 4444444444444, title: 'Ayah', authors: 'Sandi Alamsyah', year: '2023', isCompleted: 'on'},
+//     {id: 5555555555555, title: 'Aneka Ikan', authors: 'Bendi Ahmad', year: '2019', isCompleted: 'on'},
+// ];
 
 let sortedBookData = { complete: [], uncomplete: [], totalLength: 0}
 
@@ -65,12 +66,22 @@ function showForm(task) {
     }
 }
 
+// ------ repair check button ------
+const check =  document.getElementById('bookFormIsComplete')
+check.value = 'off'
+check.addEventListener('click', function() {
+    check.value = check.value == 'off' ? 'on' : 'off'
+});
+
 // ------ tombol submit di form add book ------
 
 addForm.addEventListener('submit', function (e) {
     e.preventDefault();
     addBookData();
+    updateBooklistUI();
+    bookListContainer.style.opacity = 1;
     resetForm();
+    console.log(bookData)
 });
 
 function addBookData() {
@@ -83,6 +94,8 @@ function addBookData() {
     bookData.push(myData);
     // console.log(bookData);
 }
+
+
 
 function generateBookData(id, title, authors, year, isCompleted) {
     return {
@@ -137,7 +150,7 @@ function elementBookDetail(data) {
     const heading = document.createElement('h3');
     heading.setAttribute("data-testid", 'bookItemTitle');
     heading.innerHTML = data.title;
-    heading.classList.add("capitalText");
+    // heading.classList.add("capitalText");
     bookInfo.appendChild(heading);
 
     const paragraph1 = document.createElement('p');

@@ -15,110 +15,112 @@
       <h1>Bookshelf App</h1>
     </header>
 
-    <main>
-      <div class="menu">
-        <div class="welcome-menu">
-          <h2>Tambah atau Cari Buku di Sini!</h3>
-          <div class="welcome-menu-buttons">
-            <!-- Add new book button -->
-            <button class="add-button card">
-              <i class="fa-solid fa-book"></i>
-              <i class="fa-solid fa-plus"></i>
-            </button>
-            <!-- Search book button -->
-            <button class="search-button card">
-              <i class="fa-solid fa-book"></i>
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
+    <div class="main-footer">
+      <main>
+        <div class="menu">
+          <div class="welcome-menu">
+            <h2>Tambah atau Cari Buku di Sini!</h3>
+            <div class="welcome-menu-buttons">
+              <!-- Add new book button -->
+              <button class="add-button card">
+                <i class="fa-solid fa-book"></i>
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              <!-- Search book button -->
+              <button class="search-button card">
+                <i class="fa-solid fa-book"></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="main-form form-container card">
-        <section class="add-form-container">
-          <h2>Tambah Buku Baru</h2>
-          <form id="bookForm" data-testid="bookForm">
-            <div>
-              <label for="bookFormTitle">Judul</label>
-              <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput" />
-            </div>
-            <div>
-              <label for="bookFormAuthor">Penulis</label>
-              <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput" />
-            </div>
-            <div>
-              <label for="bookFormYear">Tahun</label>
-              <input id="bookFormYear" type="number" required data-testid="bookFormYearInput"/>
-            </div>
-            <div>
-              <label for="bookFormIsComplete">Selesai dibaca</label>
-              <input
-                id="bookFormIsComplete"
-                type="checkbox"
-                data-testid="bookFormIsCompleteCheckbox"
-              />
-            </div>
-            <button id="bookFormSubmit" type="submit" data-testid="bookFormSubmitButton">
-              <i class="fa-solid fa-plus"></i>  Belum selesai dibaca
-            </button>
-          </form>
-        </section>
   
-        <section class="search-form-container">
-          <h2>Cari Buku</h2>
-          <form id="searchBook" data-testid="searcheditBookForm">
-            <div>
-              <label for="searchBookTitle">Judul</label>
-              <input id="searchBookTitle" type="text" data-testid="searcheditBookFormTitleInput" />
-            </div>
-            <button id="searchSubmit" type="submit" data-testid="searcheditBookFormSubmitButton">
-              Cari
-            </button>
-          </form>
-        </section>
-      </div>
-      
-      <div class="booklist-container">
-        <section class="card">
-          <h2>Belum selesai dibaca</h2>
-          <div id="incompleteBookList" data-testid="incompleteBookList"></div>
-        </section>
+        <div class="main-form form-container card">
+          <section class="add-form-container">
+            <h2>Tambah Buku Baru</h2>
+            <form id="bookForm" data-testid="bookForm">
+              <div>
+                <label for="bookFormTitle">Judul</label>
+                <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput" />
+              </div>
+              <div>
+                <label for="bookFormAuthor">Penulis</label>
+                <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput" />
+              </div>
+              <div>
+                <label for="bookFormYear">Tahun</label>
+                <input id="bookFormYear" type="number" required data-testid="bookFormYearInput"/>
+              </div>
+              <div>
+                <label for="bookFormIsComplete">Selesai dibaca</label>
+                <input
+                  id="bookFormIsComplete"
+                  type="checkbox"
+                  data-testid="bookFormIsCompleteCheckbox"
+                />
+              </div>
+              <button id="bookFormSubmit" type="submit" data-testid="bookFormSubmitButton">
+                <i class="fa-solid fa-plus"></i>  Simpan
+              </button>
+            </form>
+          </section>
+    
+          <section class="search-form-container">
+            <h2>Cari Buku</h2>
+            <form id="searchBook" data-testid="searcheditBookForm">
+              <div>
+                <label for="searchBookTitle">Judul</label>
+                <input id="searchBookTitle" type="text" data-testid="searcheditBookFormTitleInput" />
+              </div>
+              <button id="searchSubmit" type="submit" data-testid="searcheditBookFormSubmitButton">
+                Cari
+              </button>
+            </form>
+          </section>
+        </div>
+        
+        <div class="booklist-container">
+          <section class="card">
+            <h2>Belum selesai dibaca</h2>
+            <div id="incompleteBookList" data-testid="incompleteBookList"></div>
+          </section>
+    
+          <section class="card">
+            <h2>Selesai dibaca</h2>
+            <div id="completeBookList" data-testid="completeBookList"></div>
+          </section>
+        </div>
   
-        <section class="card">
-          <h2>Selesai dibaca</h2>
-          <div id="completeBookList" data-testid="completeBookList"></div>
-        </section>
-      </div>
+        <div class="edit-form form-container">
+          <section class="edit-form-container card">
+            <h2>Ubah Buku</h2>
+            <form id="editBookForm">
+              <div>
+                <label for="editBookFormTitle">Judul</label>
+                <input id="editBookFormTitle" type="text" required />
+              </div>
+              <div>
+                <label for="editBookFormAuthor">Penulis</label>
+                <input id="editBookFormAuthor" type="text" required />
+              </div>
+              <div>
+                <label for="editBookFormYear">Tahun</label>
+                <input id="editBookFormYear" type="number" required/>
+              </div>
+              <button id="editBookFormSubmit" type="submit">
+                <i class="fa-solid fa-pen-to-square"></i>  Simpan Perubahan
+              </button>
+            </form>
+          </section>
+        </div>
+  
+      </main>
+  
+      <footer>
+        <p>&#169; <a href="https://github.com/fitri-puspitasari">Fitri Puspitasari</a> 2024</p>
+      </footer>
 
-      <div class="edit-form form-container">
-        <section class="edit-form-container card">
-          <h2>Ubah Buku</h2>
-          <form id="editBookForm">
-            <div>
-              <label for="editBookFormTitle">Judul</label>
-              <input id="editBookFormTitle" type="text" required />
-            </div>
-            <div>
-              <label for="editBookFormAuthor">Penulis</label>
-              <input id="editBookFormAuthor" type="text" required />
-            </div>
-            <div>
-              <label for="editBookFormYear">Tahun</label>
-              <input id="editBookFormYear" type="number" required/>
-            </div>
-            <button id="editBookFormSubmit" type="submit">
-              <i class="fa-solid fa-pen-to-square"></i>  Simpan Perubahan
-            </button>
-          </form>
-        </section>
-      </div>
-
-    </main>
-
-    <footer>
-      <p>&#169; <a href="https://github.com/fitri-puspitasari">Fitri Puspitasari</a> 2024</p>
-    </footer>
-
+    </div>
 
 
     <!-- font awesome -->

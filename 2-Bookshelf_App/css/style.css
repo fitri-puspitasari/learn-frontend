@@ -46,6 +46,10 @@ input[type="checkbox"]:not(:disabled):checked {
     box-shadow: 5px 3px 10px #232946;;
 }
 
+capitalText {
+    text-transform: capitalize;
+}
+
 
 
 header {
@@ -103,7 +107,7 @@ header {
 
 /* ------ form-container ------ */
 
-.form-container {
+.main-form {
     position: absolute;
     top: 100px;
     left: 0;
@@ -111,9 +115,6 @@ header {
     margin: 0 auto;
     width: 320px;
     height: 285px;
-}
-
-.form-container {
     transition: all 0.5s;
 }
 
@@ -173,7 +174,7 @@ header {
     background-color: #eebbc3;
 }
 
-.form-container,
+.main-form,
 .add-form-container,
 .search-form-container {
     display: none;
@@ -217,6 +218,10 @@ header {
     justify-content: space-between;
 }
 
+.booklist-container .book-detail > * {
+    transition: opacity 0.5s;
+}
+
 .booklist-container .book-detail:last-child {
     border-bottom: 1px solid #232946;
     /* padding: 20px; */
@@ -251,10 +256,32 @@ header {
     color: #eebbc3;
 }
 
+/* ------ edit-form-container ------ */
 
+.edit-form {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 25;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fffffea4;
+    display: none;
+}
 
-
-
+.edit-form-container {
+    position: fixed;
+    width: 320px;
+    height: fit-content; 
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: all 0.5s;
+}
 
 
 /* TEST */
@@ -273,5 +300,6 @@ header {
 
 /*
 header  z-index: 20;
+.edit-form-container: 25;
 .menu   z-index: 5;
 */

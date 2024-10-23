@@ -34,7 +34,7 @@
         </div>
       </div>
 
-      <div class="form-container card">
+      <div class="main-form form-container card">
         <section class="add-form-container">
           <h2>Tambah Buku Baru</h2>
           <form id="bookForm" data-testid="bookForm">
@@ -66,12 +66,12 @@
   
         <section class="search-form-container">
           <h2>Cari Buku</h2>
-          <form id="searchBook" data-testid="searchBookForm">
+          <form id="searchBook" data-testid="searcheditBookForm">
             <div>
               <label for="searchBookTitle">Judul</label>
-              <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput" />
+              <input id="searchBookTitle" type="text" data-testid="searcheditBookFormTitleInput" />
             </div>
-            <button id="searchSubmit" type="submit" data-testid="searchBookFormSubmitButton">
+            <button id="searchSubmit" type="submit" data-testid="searcheditBookFormSubmitButton">
               Cari
             </button>
           </form>
@@ -81,85 +81,39 @@
       <div class="booklist-container">
         <section class="card">
           <h2>Belum selesai dibaca</h2>
-          <div id="incompleteBookList" data-testid="incompleteBookList">
-
-            <div class="book-detail" data-bookid="123123123" data-testid="bookItem">
-              <div class="book-info">
-                <h3 data-testid="bookItemTitle">Judul Buku 1</h3>
-                <p data-testid="bookItemAuthor"><span class="key">Penulis</span>: Penulis Buku 1</p>
-                <p data-testid="bookItemYear"><span class="key">Tahun</span>: 2030</p>
-              </div>
-              <div class="book-info-buttons">
-                <button title="Tandai selesai dibaca" data-testid="bookItemIsCompleteButton"><i class="fa-solid fa-circle-check"></i></button>
-                <button title="Hapus" data-testid="bookItemDeleteButton"><i class="fa-solid fa-trash"></i></button>
-                <button title="Edit" data-testid="bookItemEditButton"><i class="fa-solid fa-pen-to-square"></i></button>
-              </div>
-            </div>
-
-            <div class="book-detail" data-bookid="123123123" data-testid="bookItem">
-              <div class="book-info">
-                <h3 data-testid="bookItemTitle">Judul Buku 1</h3>
-                <p data-testid="bookItemAuthor"><span class="key">Penulis</span>: Penulis Buku 1</p>
-                <p data-testid="bookItemYear"><span class="key">Tahun</span>: 2030</p>
-              </div>
-              <div class="book-info-buttons">
-                <button title="Tandai selesai dibaca" data-testid="bookItemIsCompleteButton"><i class="fa-solid fa-circle-check"></i></button>
-                <button title="Hapus" data-testid="bookItemDeleteButton"><i class="fa-solid fa-trash"></i></button>
-                <button title="Edit" data-testid="bookItemEditButton"><i class="fa-solid fa-pen-to-square"></i></button>
-              </div>
-            </div>
-          </div>
+          <div id="incompleteBookList" data-testid="incompleteBookList"></div>
         </section>
   
         <section class="card">
           <h2>Selesai dibaca</h2>
-          <div id="completeBookList" data-testid="completeBookList">
-
-            <div class="book-detail" data-bookid="456456456" data-testid="bookItem">
-              <div class="book-info">
-                <h3 data-testid="bookItemTitle">Judul Buku 2</h3>
-                <p data-testid="bookItemAuthor"><span class="key">Penulis</span>: Penulis Buku 2</p>
-                <p data-testid="bookItemYear"><span class="key">Tahun</span>: 2030</p>  
-              </div>
-              <div class="book-info-buttons">
-                <button title="Tandai belum selesai dibaca" data-testid="bookItemIsCompleteButton"><i class="fa-solid fa-circle-xmark"></i></button>
-                <button title="Hapus" data-testid="bookItemDeleteButton"><i class="fa-solid fa-trash"></i></button>
-                <button title="Edit" data-testid="bookItemEditButton"><i class="fa-solid fa-pen-to-square"></i></button>
-              </div>
-            </div>
-
-            <div class="book-detail" data-bookid="123123123" data-testid="bookItem">
-              <div class="book-info">
-                <h3 data-testid="bookItemTitle">Judul Buku 2</h3>
-                <p data-testid="bookItemAuthor"><span class="key">Penulis</span>: Penulis Buku 2</p>
-                <p data-testid="bookItemYear"><span class="key">Tahun</span>: 2030</p>  
-              </div>
-              <div class="book-info-buttons">
-                <button title="Tandai belum selesai dibaca" data-testid="bookItemIsCompleteButton"><i class="fa-solid fa-circle-xmark"></i></button>
-                <button title="Hapus" data-testid="bookItemDeleteButton"><i class="fa-solid fa-trash"></i></button>
-                <button title="Edit" data-testid="bookItemEditButton"><i class="fa-solid fa-pen-to-square"></i></button>
-              </div>
-            </div>
-
-            <div class="book-detail" data-bookid="123123123" data-testid="bookItem">
-              <div class="book-info">
-                <h3 data-testid="bookItemTitle">Judul Buku 2</h3>
-                <p data-testid="bookItemAuthor"><span class="key">Penulis</span>: Penulis Buku 2</p>
-                <p data-testid="bookItemYear"><span class="key">Tahun</span>: 2030</p>  
-              </div>
-              <div class="book-info-buttons">
-                <button title="Tandai belum selesai dibaca" data-testid="bookItemIsCompleteButton"><i class="fa-solid fa-circle-xmark"></i></button>
-                <button title="Hapus" data-testid="bookItemDeleteButton"><i class="fa-solid fa-trash"></i></button>
-                <button title="Edit" data-testid="bookItemEditButton"><i class="fa-solid fa-pen-to-square"></i></button>
-              </div>
-            </div>
-
-          </div>
+          <div id="completeBookList" data-testid="completeBookList"></div>
         </section>
       </div>
+
+      <div class="edit-form form-container">
+        <section class="edit-form-container card">
+          <h2>Ubah Buku</h2>
+          <form id="editBookForm">
+            <div>
+              <label for="editBookFormTitle">Judul</label>
+              <input id="editBookFormTitle" type="text" required />
+            </div>
+            <div>
+              <label for="editBookFormAuthor">Penulis</label>
+              <input id="editBookFormAuthor" type="text" required />
+            </div>
+            <div>
+              <label for="editBookFormYear">Tahun</label>
+              <input id="editBookFormYear" type="number" required/>
+            </div>
+            <button id="editBookFormSubmit" type="submit">
+              <i class="fa-solid fa-pen-to-square"></i>  Simpan Perubahan
+            </button>
+          </form>
+        </section>
+      </div>
+
     </main>
-
-
 
 
     <!-- font awesome -->

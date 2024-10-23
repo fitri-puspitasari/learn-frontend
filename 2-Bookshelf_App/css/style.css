@@ -8,6 +8,7 @@ body {
     background-color: #b8c1ec;
     color: #232946;
     font-family: 'Proxima', serif;
+    height: fit-content;
 }
 
 button {
@@ -46,11 +47,13 @@ input[type="checkbox"]:not(:disabled):checked {
     box-shadow: 5px 3px 10px #232946;;
 }
 
-capitalText {
+.capitalText {
     text-transform: capitalize;
 }
 
-
+main {
+    margin-bottom: 30px;
+}
 
 header {
     background-color: #232946;
@@ -286,20 +289,25 @@ header {
 /* ----------- footer ----------- */
 
 footer {
+    /* position: fixed; */
     height: 50px;
     line-height: 50px;
     text-align: center;
-    background-color: #EE857F;
-    color: white;
+    background-color: #232946;
+    color: #fffffe;
+    /* left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: calc(100vh - 50px); */
 }
 
 footer a {
-    color: white;
+    color: #fffffe;
     text-decoration: none;
 }
 
 footer a:hover {
-    color: black;
+    color: #eebbc3;
     text-decoration: underline;
 }
 

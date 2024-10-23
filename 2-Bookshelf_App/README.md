@@ -1,3 +1,5 @@
+Submission: Membangun Bookshelf App - Belajar Membuat Front-End Web untuk Pemula - Dicoding 2024
+
 # Bookshelf App Starter Project
 
 Ini adalah starter project untuk siswa yang sedang mengerjakan tugas akhir kelas Belajar Membuat Front-End Web untuk Pemula.

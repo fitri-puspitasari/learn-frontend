@@ -385,14 +385,19 @@ searchForm.addEventListener('submit', function(e) {
 
     searchBookData = [];
     bookData.forEach((data, index) => {
-        if (bookTitle == '' || isInclude(data, 'title', bookTitle)) {
-            if (bookAuthor == '' || isInclude(data, 'author', bookAuthor)) {
-                if (bookYear == '' || data.year == bookYear) {
-                    searchBookData.push(data)
+        if (bookTitle !== '' || bookAuthor !== '' || bookYear !== '') {
+            if (bookTitle == '' || isInclude(data, 'title', bookTitle)) {
+                if (bookAuthor == '' || isInclude(data, 'author', bookAuthor)) {
+                    if (bookYear == '' || data.year == bookYear) {
+                        searchBookData.push(data)
+                    }
                 }
-            }
+            }            
         }
+
+
     });
+    
     bookListContainer.style.opacity = 1;
     isAllDataShowed = false;
     document.dispatchEvent(new Event(RENDER_EVENT));

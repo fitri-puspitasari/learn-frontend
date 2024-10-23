@@ -1,6 +1,4 @@
-Submission: Membangun Bookshelf App
-- Belajar Membuat Front-End Web untuk Pemula
-- Dicoding 2024
+Submission: Membangun Bookshelf App - Belajar Membuat Front-End Web untuk Pemula - Dicoding 2024
 
 # Bookshelf App Starter Project
 

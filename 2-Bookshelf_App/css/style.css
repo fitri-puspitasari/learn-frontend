@@ -170,7 +170,8 @@ header {
     display: block;
 }
 
-.form-container input:hover {
+.form-container input:hover,
+.form-container input:focus {
     background-color: #eebbc3;
 }
 
@@ -185,6 +186,10 @@ header {
 .add-form-container,
 .search-form-container {
     display: none;
+}
+
+.show-booklist {
+    margin-top: 50px;
 }
 
 /* ------ booklist-container ------ */
@@ -203,7 +208,7 @@ header {
 }
 
 .booklist-container h2,
-.booklist-container h3,
+/* .booklist-container h3, */
 .booklist-container p {
     text-transform: capitalize;
 }
@@ -226,7 +231,7 @@ header {
 }
 
 .booklist-container .book-detail > * {
-    transition: opacity 0.5s;
+    transition: opacity 0.1s;
 }
 
 .booklist-container .book-detail:last-child {
@@ -288,6 +293,21 @@ header {
     right: 0;
     margin: auto;
     transition: all 0.5s;
+}
+
+.edit-form button {
+    margin-bottom: 5px;
+    width: 150px;
+}
+
+.edit-form button:last-child {
+    background-color: #DC3545;
+    margin-top: 10px !important;
+}
+
+.edit-form button:last-child:hover {
+    color: #232946;
+    background-color: #eebbc3;
 }
 
 /* ----------- footer ----------- */

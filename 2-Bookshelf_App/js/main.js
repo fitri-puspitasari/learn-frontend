@@ -3,6 +3,7 @@ const searchButton = document.querySelector('.search-button');
 const mainFormContainer = document.querySelector('.main-form');
 const addFormContainer = document.querySelector('.add-form-container');
 const searchForm = document.querySelector('.search-form-container');
+const showButton = document.querySelector('.show-button');
 const menu = document.querySelector('.menu');
 const addForm = document.querySelector('#bookForm');
 const bookListContainer = document.querySelector('.booklist-container');
@@ -11,33 +12,54 @@ const completeBookList = document.querySelector('#completeBookList');
 const editFormContainer = document.querySelector('.edit-form');
 const editForm = document.querySelector('#editBookForm');
 
-
-
-
-
-
 let bookData = [];
-// let bookData = [
-//     {id: 1111111111111, title: 'Juz Amma', authors: 'Imam Yasir', year: '2008', isCompleted: 'off'},
-//     {id: 2222222222222, title: 'Habibie & ainun', authors: 'Habibie', year: '2013', isCompleted: 'off'},
-//     {id: 3333333333333, title: 'smart parenting', authors: 'Tania Saraswati M.Psi.', year: '2024', isCompleted: 'on'},
-//     {id: 4444444444444, title: 'Ayah', authors: 'Sandi Alamsyah', year: '2023', isCompleted: 'on'},
-//     {id: 5555555555555, title: 'Aneka Ikan', authors: 'Bendi Ahmad', year: '2019', isCompleted: 'on'},
-// ];
-
 let sortedBookData = { complete: [], uncomplete: [], totalLength: 0}
 
+const STORAGE_KEY = 'LOCAL_BOOK_DATA';
+
+const RENDER_EVENT = 'render-book-data';
 
 
 // ------ tombol add & search di welcome menu ------
 
-addButton.addEventListener("click", function() {
-    showForm('add');
+document.addEventListener('DOMContentLoaded', function () {
+    addButton.addEventListener("click", function() {
+        showForm('add');
+    });
+    
+    searchButton.addEventListener("click", function() {
+        showForm('search');
+    });
+
+    if (typeof (Storage) !== undefined) {
+        loadDataFromStorage();
+    } else {
+        alert('Browser anda tidak mendukung local storage');
+    }
 });
 
-searchButton.addEventListener("click", function() {
-    showForm('search');
-});
+
+function loadDataFromStorage() {
+    // const serializedData = localStorage.getItem(STORAGE_KEY);
+    let dataFromLocal = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+    // -------------------------- belum diupdate !!!!!!!!!!!!!!!
+    console.log(dataFromLocal)
+    if (dataFromLocal !== null) {
+        for (const data of dataFromLocal) {
+            bookData.push(data);
+        }
+    }
+   
+    document.dispatchEvent(new Event(RENDER_EVENT));
+}
+
+
+// document.addEventListener(RENDER_EVENT, function () {
+//     updateBooklistUI();
+// });
+
+
 
 function showForm(task) {
     const welcomeText = document.querySelector('.welcome-menu').children[0]
@@ -78,10 +100,10 @@ check.addEventListener('click', function() {
 addForm.addEventListener('submit', function (e) {
     e.preventDefault();
     addBookData();
-    updateBooklistUI();
+    document.dispatchEvent(new Event(RENDER_EVENT));
     bookListContainer.style.opacity = 1;
     resetForm();
-    console.log(bookData)
+    // console.log(bookData)
 });
 
 function addBookData() {
@@ -92,9 +114,19 @@ function addBookData() {
     const bookIsComplete = document.getElementById('bookFormIsComplete').value;
     const myData = generateBookData(bookId, bookTitle, bookAuthor, bookYear, bookIsComplete)
     bookData.push(myData);
-    // console.log(bookData);
+    saveDataToLocal();
 }
 
+function saveDataToLocal() {
+    if (typeof (Storage) !== undefined) {
+        const parsed = JSON.stringify(bookData);
+        localStorage.setItem(STORAGE_KEY, parsed);
+        // document.dispatchEvent(new Event(SAVED_EVENT));
+        console.log(bookData);
+        console.log(localStorage.getItem(STORAGE_KEY));
+
+    }
+}
 
 
 function generateBookData(id, title, authors, year, isCompleted) {
@@ -118,9 +150,14 @@ function resetForm() {
     document.getElementById('bookFormIsComplete').checked = false;
 }
 
+// ------ tombol show => menampilkan Booklist UI ------
+showButton.addEventListener('click', function() {
+    bookListContainer.style.opacity = 1;
+})
+
 // ------ update UI Booklist berdasarkan variabel bookData ------
 
-function updateBooklistUI() {
+document.addEventListener(RENDER_EVENT, function () {
     separateBookData();
 
     completeBookList.innerHTML = ''
@@ -134,8 +171,7 @@ function updateBooklistUI() {
         const bookDetail = elementBookDetail(data);
         incompleteBookList.appendChild(bookDetail);
     });
-
-}
+});
 
 function elementBookDetail(data) {
     const bookDetail = document.createElement('div');
@@ -218,7 +254,6 @@ function separateBookData() {
 }
 
 // test
-updateBooklistUI();
 
 
 // ------ switch isComplete pada variable bookdata ------
@@ -233,7 +268,7 @@ function deleteBookData(id) {
     bookData.forEach((data, i) => {
         if(data.id == id) bookData.splice(i, 1)
     });
-    console.log(bookData)
+    // console.log(bookData)
 }
 
 // ------ animasi fadeout bookdetail pada checkbutton yang dipilih ------
@@ -242,8 +277,10 @@ function moveBook(bookDetail) {
     fadeoutBook(bookDetail);
     // update
     setTimeout(() => {
-        updateBooklistUI();
-    }, 500);
+        document.dispatchEvent(new Event(RENDER_EVENT));
+        saveDataToLocal();
+
+    }, 100);
 }
 
 function deleteBook(bookDetail, id) {
@@ -252,13 +289,16 @@ function deleteBook(bookDetail, id) {
     setTimeout(() => {
         deleteBookData(id)
         bookDetail.remove();
-    }, 500);
+        saveDataToLocal();
+
+    }, 100);
+    console.log(bookData)
 }
 
 function fadeoutBook(bookDetail) {
     const elements = bookDetail.childNodes
     elements.forEach(element => {
-        console.log(element)
+        // console.log(element)
         element.style.opacity = 0
         
     });
@@ -290,13 +330,19 @@ function showEditForm(bookDetail, id) {
                 const heading = bookDetail.childNodes[0].childNodes[0]
                 const paragraph1 = bookDetail.childNodes[0].childNodes[1]
                 const paragraph2 = bookDetail.childNodes[0].childNodes[2]
-                console.log(heading)
+                // console.log(heading)
                 heading.innerHTML = bookData[i].title;
                 paragraph1.innerHTML = `<span class="key">Penulis</span>: ${bookData[i].authors}`;
                 paragraph2.innerHTML = `<span class="key">Tahun</span>: ${bookData[i].year}`;
-
-                console.log(bookData)
+                
+                saveDataToLocal();
             };
+
+            // close edit form
+            document.getElementById('editBookFormClose').addEventListener('click', function() {
+                editFormContainer.style.display = 'none';
+            })
+            
         }
     });
 

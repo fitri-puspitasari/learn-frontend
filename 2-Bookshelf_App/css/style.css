@@ -188,9 +188,44 @@ header {
     display: none;
 }
 
-.show-booklist {
-    margin-top: 50px;
+.search-form-container .show-booklist {
+    margin-top: 10px;
 }
+.search-form-container .open-label-button,
+.search-form-container .show-button {
+    margin-top: 0px !important;
+}
+
+.search-form-container .open-label-button {
+    background-color: transparent;
+    color: #232946;
+}
+
+.search-form-container .open-label-button:hover,
+.search-form-container .open-label-button:focus {
+    background-color: transparent;
+    color: #eebbc3;
+}
+
+#searchBook div {
+    display: none;
+}
+
+#searchBook label {
+    display: inline-block;
+    width: 60px;
+    margin: 0px;
+}
+
+#searchBook input {
+    width: 210px;
+}
+
+#searchSubmit,
+.show-button {
+    width: 260px;
+}
+
 
 /* ------ booklist-container ------ */
 

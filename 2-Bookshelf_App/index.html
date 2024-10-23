@@ -68,12 +68,23 @@
           <section class="search-form-container">
             <h2>Cari Buku</h2>
             <form id="searchBook" data-testid="searcheditBookForm">
+              <button class="open-label-button"  type="button">+ Cari Berdasarkan Judul</button>
               <div>
-                <label for="searchBookTitle">Judul</label>
+                <label for="searchBookTitle" >Judul</label>
                 <input id="searchBookTitle" type="text" data-testid="searcheditBookFormTitleInput" />
               </div>
+              <button class="open-label-button"  type="button">+ Cari Berdasarkan Penulis</button>
+              <div>
+                <label for="searchBookAuthor">Penulis</label>
+                <input id="searchBookAuthor" type="text" data-testid="searcheditBookFormAuthorInput" />
+              </div>
+              <button class="open-label-button"  type="button">+ Cari Berdasarkan Tahun</button>
+              <div>
+                <label for="searchBookYear">Tahun</label>
+                <input id="searchBookYear" type="number" data-testid="searcheditBookFormYearInput" />
+              </div>
               <button id="searchSubmit" type="submit" data-testid="searcheditBookFormSubmitButton">
-                Cari
+                <i class="fa-solid fa-magnifying-glass"></i>    Cari
               </button>
             </form>
             

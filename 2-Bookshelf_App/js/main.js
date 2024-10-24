@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         alert('Browser anda tidak mendukung local storage');
     }
+
     
     // ------ tombol show => menampilkan Booklist UI ------
     showButton.addEventListener('click', function() {
@@ -54,13 +55,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function loadDataFromStorage() {
-    // const serializedData = localStorage.getItem(STORAGE_KEY);
-    let dataFromLocal = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    const serializedData = localStorage.getItem(STORAGE_KEY);
+    let dataFromLocal = JSON.parse(serializedData);
     if (dataFromLocal !== null) {
         for (const data of dataFromLocal) {
+            // console.log(data);
+            data.year = Number(data.year);
+            data.isComplete = Boolean(data.isComplete);
             bookData.push(data);
         }
+        console.log(bookData);
     }
+    document.dispatchEvent(new Event(RENDER_EVENT));
+
 }
 
 
@@ -119,8 +126,8 @@ function addBookData() {
     const bookId = generateId();
     const bookTitle = document.getElementById('bookFormTitle').value;
     const bookAuthor = document.getElementById('bookFormAuthor').value;
-    const bookYear = document.getElementById('bookFormYear').value;
-    const bookIsComplete = document.getElementById('bookFormIsComplete').value;
+    const bookYear = Number(document.getElementById('bookFormYear').value);
+    const bookIsComplete = document.getElementById('bookFormIsComplete').checked;
     const myData = generateBookData(bookId, bookTitle, bookAuthor, bookYear, bookIsComplete)
     bookData.push(myData);
     saveDataToLocal();
@@ -128,18 +135,20 @@ function addBookData() {
 
 function saveDataToLocal() {
     if (typeof (Storage) !== undefined) {
+        console.log(bookData);
+
         const parsed = JSON.stringify(bookData);
         localStorage.setItem(STORAGE_KEY, parsed);
     }
 }
 
-function generateBookData(id, title, author, year, isCompleted) {
+function generateBookData(id, title, author, year, isComplete) {
     return {
         id,
         title,
         author,
         year,
-        isCompleted
+        isComplete
     }
 }
 
@@ -192,8 +201,8 @@ document.addEventListener(RENDER_EVENT, function () {
 function separateBookData() {
     const dataShowed = isAllDataShowed ? bookData : searchBookData
     
-    sortedBookData.complete = dataShowed.filter((data) => data.isCompleted === "on")
-    sortedBookData.uncomplete = dataShowed.filter((data) => data.isCompleted === "off")
+    sortedBookData.complete = dataShowed.filter((data) => data.isComplete === true)
+    sortedBookData.uncomplete = dataShowed.filter((data) => data.isComplete === false)
 
     function sortByTitle(a, b) {
         return a.title.localeCompare(b.title);
@@ -237,9 +246,9 @@ function elementBookDetail(data) {
     bookDetail.appendChild(bookInfoButtons);
     
     const checkButton = document.createElement('button');
-    checkButton.setAttribute("title", data.isCompleted == 'on' ? 'Tandai belum selesai dibaca' : 'Tandai selesai dibaca');
+    checkButton.setAttribute("title", data.isComplete == true ? 'Tandai belum selesai dibaca' : 'Tandai selesai dibaca');
     checkButton.setAttribute("data-testid", 'bookItemIsCompleteButton');
-    checkButton.innerHTML = data.isCompleted == 'on' ? '<i class="fa-solid fa-circle-xmark"></i>' : '<i class="fa-solid fa-circle-check"></i>';
+    checkButton.innerHTML = data.isComplete == true ? '<i class="fa-solid fa-circle-xmark"></i>' : '<i class="fa-solid fa-circle-check"></i>';
     bookInfoButtons.appendChild(checkButton);
 
     const deleteButton = document.createElement('button');
@@ -274,7 +283,8 @@ function elementBookDetail(data) {
 function switchCompleteStatus(id) {
     bookData.forEach((data, i) => {
         if(data.id == id) {
-            data.isCompleted = data.isCompleted == 'on' ? 'off' : 'on';
+            // data.isComplete = data.isComplete == 'on' ? 'off' : 'on';
+            data.isComplete = !data.isComplete
         }
 
     });
@@ -339,7 +349,7 @@ function showEditForm(bookDetail, id) {
 
                 bookData[i].title = document.getElementById('editBookFormTitle').value;
                 bookData[i].author = document.getElementById('editBookFormAuthor').value;
-                bookData[i].year = document.getElementById('editBookFormYear').value;
+                bookData[i].year = Number(document.getElementById('editBookFormYear').value);
                 
                 editFormContainer.style.display = 'none';
                 
@@ -360,6 +370,8 @@ function showEditForm(bookDetail, id) {
                 editFormContainer.style.display = 'none';
             })
             
+            console.log(bookData);
+
         }
     });
 }
@@ -381,7 +393,7 @@ searchForm.addEventListener('submit', function(e) {
     e.preventDefault();    
     const bookTitle = document.getElementById('searchBookTitle').value;
     const bookAuthor = document.getElementById('searchBookAuthor').value;
-    const bookYear = document.getElementById('searchBookYear').value;
+    const bookYear = Number(document.getElementById('searchBookYear').value);
 
     searchBookData = [];
     bookData.forEach((data, index) => {
@@ -401,6 +413,9 @@ searchForm.addEventListener('submit', function(e) {
     bookListContainer.style.opacity = 1;
     isAllDataShowed = false;
     document.dispatchEvent(new Event(RENDER_EVENT));
+
+    console.log(bookData);
+
 })
     
 function isInclude(data, key, keyword) {
@@ -408,3 +423,21 @@ function isInclude(data, key, keyword) {
     const newKeyword = keyword.toLowerCase()
     return newString.includes(newKeyword)
 }
+
+/*
+
+title: 'Habibie & Ainun Jilid 1', author: 'Habibie', year: 2014, isCompleted: 'on'}
+title: 'Habibie & Ainun Jilid 2', author: 'B.J. Habibie', year: 2023, isCompleted: 'off'}
+title: 'Mamalia di Indonesia', author: 'Anggi Amelia', year: 2012, isCompleted: 'on'}
+title: 'Menanam Strawberry di Rumah', author: 'Sarah Ambarwati', year: 2011, isCompleted: 'off'}
+title: 'Menanam Buah Mangga Itu Mudah', author: 'Sandi Andrian', year: 2009, isCompleted: 'off'}
+title: 'Bedua Bersamamu Jilid 1', author: 'Ashanty Kurnianingsih', year: 2018, isCompleted: 'on'}
+
+
+
+++++
+
+
+Agar website yang kamu buat lebih menarik lagi, kamu dapat mencoba menerapkan custom dialog pada saat ada aksi menghapus buku. Kamu dapat memanfaatkan library pihak ketiga seperti SweetAlert untuk memudahkan kamu dalam membuat custom dialog
+Sebaiknya pisahkan kode menjadi modul-modul kecil yang fokus pada satu tanggung jawab. Contohnya, buat file terpisah untuk manajemen localStorage (storage.js), fungsi untuk mengelola buku (bookManager.js), dan manipulasi DOM (ui.js). Ini akan membantu menjaga keterbacaan dan pemeliharaan kode.
+*/

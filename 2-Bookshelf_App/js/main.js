@@ -13,6 +13,8 @@ const completeBookList = document.querySelector('#completeBookList');
 const editFormContainer = document.querySelector('.edit-form');
 const editForm = document.querySelector('#editBookForm');
 const openLabelButton = document.querySelectorAll('.open-label-button');
+const deleteDialog = document.querySelector('.delete-dialog');
+
 
 
 let bookData = [];
@@ -28,6 +30,9 @@ const RENDER_EVENT = 'render-book-data';
 // ------ tombol add & search di welcome menu ------
 
 document.addEventListener('DOMContentLoaded', function () {
+    // add seed data for testing
+    // addSeed();
+
     addButton.addEventListener("click", function() {
         showForm('add');
         resetSearchForm();
@@ -48,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ------ tombol show => menampilkan Booklist UI ------
     showButton.addEventListener('click', function() {
         bookListContainer.style.opacity = 1;
+        bookListContainer.style.display = 'flex';
         isAllDataShowed = true;
         document.dispatchEvent(new Event(RENDER_EVENT));
     })
@@ -64,7 +70,7 @@ function loadDataFromStorage() {
             data.isComplete = Boolean(data.isComplete);
             bookData.push(data);
         }
-        console.log(bookData);
+        // console.log(bookData);
     }
     document.dispatchEvent(new Event(RENDER_EVENT));
 
@@ -119,6 +125,7 @@ addForm.addEventListener('submit', function (e) {
     addBookData();
     document.dispatchEvent(new Event(RENDER_EVENT));
     bookListContainer.style.opacity = 1;
+    bookListContainer.style.display = 'flex';
     resetAddForm();
 });
 
@@ -135,7 +142,7 @@ function addBookData() {
 
 function saveDataToLocal() {
     if (typeof (Storage) !== undefined) {
-        console.log(bookData);
+        // console.log(bookData);
 
         const parsed = JSON.stringify(bookData);
         localStorage.setItem(STORAGE_KEY, parsed);
@@ -167,10 +174,10 @@ function resetAddForm() {
 }
 
 function resetSearchForm() {
-    document.getElementById('editBookFormTitle').value = '';
-    document.getElementById('editBookFormAuthor').value = '';
-    document.getElementById('editBookFormYear').value = '';
-    console.log(openLabelButton)
+    document.getElementById('searchBookTitle').value = '';
+    document.getElementById('searchBookAuthor').value = '';
+    document.getElementById('searchBookYear').value = '';
+    // console.log(openLabelButton)
     openLabelButton.forEach(button => {
         button.style.display = 'block';
         button.nextElementSibling.style.display = 'none';
@@ -269,7 +276,7 @@ function elementBookDetail(data) {
         moveBook(bookDetail);
     })
     deleteButton.addEventListener('click', function() {
-        deleteBook(bookDetail, data.id);
+        showDeleteDialog(bookDetail, data.id);
     })
     editButton.addEventListener('click', function() {
         showEditForm(bookDetail, data.id);
@@ -290,16 +297,7 @@ function switchCompleteStatus(id) {
     });
 }
 
-// ------ delete child bookdata ------
-function deleteBookData(id) {
-    bookData.forEach((data, i) => {
-        if(data.id == id) bookData.splice(i, 1)
-    });
-    // console.log(bookData)
-}
-
 // ------ animasi fadeout bookdetail pada checkbutton yang dipilih ------
-
 function moveBook(bookDetail) {
     fadeoutBook(bookDetail);
     // update
@@ -310,18 +308,6 @@ function moveBook(bookDetail) {
     }, 100);
 }
 
-function deleteBook(bookDetail, id) {
-    fadeoutBook(bookDetail);
-    // delete
-    setTimeout(() => {
-        deleteBookData(id)
-        bookDetail.remove();
-        saveDataToLocal();
-
-    }, 100);
-    console.log(bookData)
-}
-
 function fadeoutBook(bookDetail) {
     const elements = bookDetail.childNodes
     elements.forEach(element => {
@@ -329,6 +315,41 @@ function fadeoutBook(bookDetail) {
         element.style.opacity = 0
         
     });
+}
+
+// ------ delete dialog ------
+function showDeleteDialog(bookDetail, id) {
+    deleteDialog.style.display = 'block';
+    const yesButton = deleteDialog.children[0].children[1].children[0]
+    yesButton.addEventListener('click', function() {
+        deleteBook(bookDetail, id);
+        deleteDialog.style.display = 'none';
+    });
+    const noButton = deleteDialog.children[0].children[1].children[1]
+    noButton.addEventListener('click', function() {
+        deleteDialog.style.display = 'none';
+    });
+    
+
+}
+
+function deleteBook(bookDetail, id) {
+    fadeoutBook(bookDetail);
+    // delete
+    setTimeout(() => {
+        deleteBookData(id)
+        bookDetail.remove();
+        saveDataToLocal();
+    }, 100);
+    // console.log(bookData)
+}
+
+// ------ delete child bookdata ------
+function deleteBookData(id) {
+    bookData.forEach((data, i) => {
+        if(data.id == id) bookData.splice(i, 1)
+    });
+    // console.log(bookData)
 }
 
 // ------ show edit form ------
@@ -370,7 +391,7 @@ function showEditForm(bookDetail, id) {
                 editFormContainer.style.display = 'none';
             })
             
-            console.log(bookData);
+            // console.log(bookData);
 
         }
     });
@@ -411,10 +432,12 @@ searchForm.addEventListener('submit', function(e) {
     });
     
     bookListContainer.style.opacity = 1;
+    bookListContainer.style.display = 'flex';
     isAllDataShowed = false;
     document.dispatchEvent(new Event(RENDER_EVENT));
 
-    console.log(bookData);
+    // console.log(bookData);
+    resetSearchForm();
 
 })
     
@@ -422,6 +445,24 @@ function isInclude(data, key, keyword) {
     const newString = data[key].toLowerCase()
     const newKeyword = keyword.toLowerCase()
     return newString.includes(newKeyword)
+}
+
+
+function addSeed() {
+    bookData = [
+        {id: 1111111111111, title: "Habibie & Ainun Jilid 1", author: "Habibie", year: 2014, isComplete: true},
+        {id: 2222222222222, title: "Habibie & Ainun Jilid 2", author: "B.J. Habibie", year: 2023, isComplete: false},
+        {id: 3333333333333, title: "Mamalia di Indonesia", author: "Anggi Amelia", year: 2012, isComplete: true},
+        {id: 4444444444444, title: "Menanam Strawberry di Rumah", author: "Sarah Ambarwati", year: 2011, isComplete: false},
+        {id: 5555555555555, title: "Menanam Buah Mangga Itu Mudah", author: "Sandi Andrian", year: 2009, isComplete: false},
+        {id: 6666666666666, title: "Bedua Bersamamu Jilid 1", author: "Ashanty Kurnianingsih", year: 2018, isComplete: true}
+    ]
+    saveDataToLocal();
+
+}
+
+{
+    
 }
 
 /*
@@ -441,3 +482,21 @@ title: 'Bedua Bersamamu Jilid 1', author: 'Ashanty Kurnianingsih', year: 2018, i
 Agar website yang kamu buat lebih menarik lagi, kamu dapat mencoba menerapkan custom dialog pada saat ada aksi menghapus buku. Kamu dapat memanfaatkan library pihak ketiga seperti SweetAlert untuk memudahkan kamu dalam membuat custom dialog
 Sebaiknya pisahkan kode menjadi modul-modul kecil yang fokus pada satu tanggung jawab. Contohnya, buat file terpisah untuk manajemen localStorage (storage.js), fungsi untuk mengelola buku (bookManager.js), dan manipulasi DOM (ui.js). Ini akan membantu menjaga keterbacaan dan pemeliharaan kode.
 */
+
+// Swal.fire({
+//     title: "Are you sure?",
+//     text: "You won't be able to revert this!",
+//     icon: "warning",
+//     showCancelButton: true,
+//     confirmButtonColor: "#3085d6",
+//     cancelButtonColor: "#d33",
+//     confirmButtonText: "Yes, delete it!"
+// }).then((result) => {
+//     if (result.isConfirmed) {
+//       Swal.fire({
+//         title: "Deleted!",
+//         text: "Your file has been deleted.",
+//         icon: "success"
+//       });
+//     }
+// });

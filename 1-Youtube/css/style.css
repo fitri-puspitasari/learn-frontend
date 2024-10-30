@@ -11,8 +11,12 @@
     --white: #ffffff;
 }
 
+html {
+    scrollbar-color: #717171 transparent;
+}
+
 body {
-    /* background-color: var(--black); */
+    background-color: var(--black);
     color: white;
     font-family: "Roboto", sans-serif;
 }
@@ -47,11 +51,11 @@ button {
 header {
     width: 100vw;
     height: 56px;
-    padding-inline: 16px;
+    /* padding-inline: 16px; */
     background-color: var(--black);
     /* background-color: purple; */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     position: fixed;
 }
@@ -436,9 +440,79 @@ footer .copyrigth p{
 }
 
 
+/* ============ content ============ */
 
+.content {
+    position: relative;
+    width: calc(100vw - 242px - 13px - 30px);
+    left: 242px;
+    top: 125px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 20px;
 
+}
 
+.video-container .thumbnail img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.video-container .video-duration {
+    position: relative;
+    width: 100%;
+    bottom: 35px;
+    left: 0px;
+    text-align: end;
+}
+
+.video-container .video-duration span {
+    display: inline-block;
+    background-color: #272727cb;
+    margin-right: 10px;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.video-container .description {
+    display: flex;
+    align-items: start;
+    gap: 15px;
+}
+
+.video-container .profile-photo {
+    width: 36px;
+    height: 36px;
+    border-radius: 99px;
+}
+
+.text-description a {
+    display: block;
+}
+
+.text-description .title-video {
+    /* font-size: 1.6rem; */
+    font-size: 1.3rem;
+    color: var(--white-text-color);
+    margin-bottom: 10px;
+}
+
+.text-description .profile-name,
+.text-description p {
+    /* font-size: 1.2rem; */
+    font-size: 1rem;
+    color: var(--grey-text-color);
+}
+
+.text-description p {
+    margin-block: 0px;
+}
+
+.description button {
+    color: var(--white);
+    background-color: transparent;
+    border: none;
+}
 
 
 /* header,
@@ -446,9 +520,7 @@ footer .copyrigth p{
     background-color: rgba(128, 128, 128, 0.473);
 } */
 
-body {
-    height: 2000px;
-}
+
 
 
 /* ukuran div video yt */

@@ -1,0 +1,1 @@
+Personal Notes App - Website catatan pribadi yang dibangun menggunakan React.js. Submission Dicoding - Belajar Membuat Aplikasi Web dengan React.

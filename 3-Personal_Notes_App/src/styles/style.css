@@ -4,6 +4,40 @@
     box-sizing: border-box;
 }
 
-/* :root {
-    
-} */
+:root {
+    --orange: #f45d48;
+    --green: #078080;
+    --black: #222525;
+    --white: #fffffe;
+    --white-orange-1: #f8f5f2;
+    --white-orange-2: #FEEFE8;
+
+    --bg-color-heading: var(--orange);
+    --light-color-text: var(--white);
+    --dark-color-text: var(--black);
+}
+
+.note-app__header {
+    background-color: var(--bg-color-heading);
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    padding: 10px;
+    position: fixed;
+}
+
+.note-app__header button {
+    display: block;
+    flex-grow: 0;
+    width: 30px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.3rem;
+    color: var(--light-color-text);
+}
+
+.note-app__header h2 {
+    color: var(--light-color-text);
+    text-align: center;
+    flex-grow: 1;
+}

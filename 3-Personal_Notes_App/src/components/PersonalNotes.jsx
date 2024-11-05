@@ -9,8 +9,8 @@ class PersonalNotes extends React.Component {
         return (
             <div className="personal-notes">
                 <header className="note-app__header">
-                    <button className="note-app__menu-button"><i class="fa-solid fa-bars"></i></button>
-                    <h1>Personal Notes</h1>
+                    <button className="note-app__menu-button"><i className="fa-solid fa-bars"></i></button>
+                    <h2>Personal Notes</h2>
                 </header>
                 <main className="note-app__body">
                     <div className="notes-menu"></div>

@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
 }
 
 :root {
@@ -24,11 +25,14 @@
     --bg-color-heading: var(--white);
     --bg-color-menu: var(--white-orange-2);
     --bg-color-content: var(--white-orange-2);
+    --bg-color-focus-input: var(--white-orange-1);
+    /* --bg-color-heading: var(--white-orange-2);
+    --bg-color-menu: var(--white-orange-2);
+    --bg-color-content: var(--white); */
     /* button color */
     --color-menu-button: var(--orange);
     --color-hover-menu-button: var(--light-green-3);
     --color-active-menu-button: var(--green);
-
     /* ====size==== */
     --height-heading: 60px;
     --width-menu: 70px;
@@ -38,6 +42,33 @@ body {
     background-color: var(--bg-color-body);
 }
 
+.primary-button, .neutral-button {
+    padding: 7px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.primary-button {
+    background-color: var(--white);
+    color: var(--green);
+    border: 2px solid var(--green);
+}
+
+.primary-button:hover {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+.neutral-button {
+    background-color: var(--white);
+    color: var(--orange);
+    border: 2px solid var(--orange);
+}
+
+.neutral-button:hover {
+    background-color: var(--orange);
+    color: var(--white);
+}
 
 /* ================ note-app__header ================ */
 .note-app__header {
@@ -50,6 +81,8 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 5px;
+    z-index: 50;
+    border-bottom: 5px solid var(--bg-color-body);
     /* border-bottom: 5px solid var(--orange); */
 }
 
@@ -80,13 +113,13 @@ body {
     background-color: var(--bg-color-menu);
     width: var(--width-menu);
     height: calc(100vh - var(--height-heading));
-    top: calc(5px + var(--height-heading));
+    top: var(--height-heading);
     padding: 20px;
     border-right: 2px solid var(--text-color-heading);
     border-top-right-radius: 10px;
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    gap: 10px; */
+    gap: 10px;
 }
 
 .note-app__menu__button {
@@ -125,6 +158,8 @@ body {
     fill: var(--color-menu-button);
 }
 
+/* 
+
 .note-app__menu__button[datatitle]:hover:after {
     opacity: 1;
     transition: all 0.1s ease 0.2s;
@@ -148,11 +183,9 @@ body {
 }
 
 .note-app__menu__button:first-child[datatitle]:after {
-    /* border: 2px solid black; */
     bottom: 20px;
-
 }
-
+*/
 
 /* ================ note-app__content ================ */
 .note-app__content {
@@ -160,16 +193,82 @@ body {
     height: calc(100vh - var(--height-heading));
     background-color: var(--bg-color-content);
     position: relative;
-    top: calc(var(--height-heading) + 5px);
-    left: calc(var(--width-menu) + 0px);
-    /* border-left: 2px solid var(--text-color-heading); */
+    top: var(--height-heading);
+    left: var(--width-menu);
     border-top-left-radius: 10px;
-    z-index: 1;
-    display: none;
+    /* z-index: 1; */
 }
+
+.note-app__content > * {
+    padding: 30px;
+}
+
+.note-app__content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.note-input  {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.note-input__title {
+    order: 1;
+}
+
+.note-input__title input{
+    font-size: 1.2rem;
+    width: calc(100vw - var(--width-menu) - 62px);
+    
+}
+
+.note-input__content {
+    order: 2;
+}
+
+.note-input__content textarea{
+    font-size: 1rem;
+    /* font-family: "Quicksand", sans-serif; */
+    resize: none;
+    /* height = 100vh - height heading - border bottom heading - padding content - height h3 - margin botton h3 - height input text - margin bottom input text */
+    height: 300px;
+}
+
+.note-input__title input,
+.note-input__content textarea {
+    border: none;
+    /* background-color: transparent; */
+    padding: 10px;
+    width: calc(100vw - var(--width-menu) - 60px);
+
+}
+
+.note-input__title input:hover,
+.note-input__content textarea:hover {
+    background-color: var(--bg-color-focus-input);
+
+}
+
+.note-input__title input:focus,
+.note-input__content textarea:focus {
+    border: none;
+    outline: none;
+}
+
+.note-input button {
+    align-self: start;
+    order: 0;
+    margin-right: 10px;
+    /* font-family: "Quicksand", sans-serif; */
+}
+
 
 
 /*
 z-index
-.note-app__menu__button[title]:after    : 100
+.note-app__header : 50
+.note-app__menu__button[title]:after    : 100 ???
 */

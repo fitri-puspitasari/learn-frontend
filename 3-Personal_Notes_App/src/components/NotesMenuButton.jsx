@@ -20,14 +20,14 @@ function NotesMenuButton({iconClass, buttonText, buttonCLass}) {
     if(iconClass == "feather-component") {
         return (
             // <button className={`"note-app__menu__button" ${buttonCLass}`}>
-            <button className="note-app__menu__button">
+            <button className="note-app__menu__button" datatitle={buttonText}>
                 <FeatherIcon />
             </button>
         )
     }else{
         return (
             // <button className={`"note-app__menu__button" ${buttonCLass}`}>
-            <button className="note-app__menu__button">
+            <button className="note-app__menu__button" datatitle={buttonText}>
                 <i className={iconClass}></i>
             </button>
         )

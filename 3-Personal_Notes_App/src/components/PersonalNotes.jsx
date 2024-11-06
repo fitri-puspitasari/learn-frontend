@@ -1,6 +1,7 @@
 import React from "react";
 import NotesMenu from "./NotesMenu";
 import FeatherIcon from "./icon/FeatherIcon";
+import NotesContent from "./NotesContent";
 
 class PersonalNotes extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class PersonalNotes extends React.Component {
                 </header>
                 <main className="note-app__body">
                     <NotesMenu />
-                    <div className="note-app__content"></div>
+                    <NotesContent />
                 </main>
             </div>
         )

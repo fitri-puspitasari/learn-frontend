@@ -8,6 +8,9 @@
     /* ====color==== */
     --orange: #f45d48;
     --green: #078080;
+    --light-green-1: #399999;
+    --light-green-2: #6ab3b3;
+    --light-green-3: #cde6e6;
     --black: #222525;
     --white: #fffffe;
     --white-orange-1: #f8f5f2;
@@ -17,17 +20,18 @@
     --dark-color-text: var(--black);
     --text-color-heading: var(--orange);
     /* bg color */
+    --bg-color-body: var(--orange);
     --bg-color-heading: var(--white);
     --bg-color-menu: var(--white-orange-2);
-    --bg-color-body: var(--orange);
+    --bg-color-content: var(--white-orange-2);
     /* button color */
     --color-menu-button: var(--orange);
-    --color-hover-menu-button: var(--white);
+    --color-hover-menu-button: var(--light-green-3);
     --color-active-menu-button: var(--green);
 
     /* ====size==== */
     --height-heading: 60px;
-
+    --width-menu: 70px;
 }
 
 body {
@@ -35,7 +39,7 @@ body {
 }
 
 
-
+/* ================ note-app__header ================ */
 .note-app__header {
     background-color: var(--bg-color-heading);
     width: 100vw;
@@ -68,11 +72,13 @@ body {
     top: 6px
 }
 
+
+/* ================ note-app__menu ================ */
 .note-app__menu {
     position: fixed;
     /* background-color: var(--white-orange-2note-app__menu); */
     background-color: var(--bg-color-menu);
-    width: 70px;
+    width: var(--width-menu);
     height: calc(100vh - var(--height-heading));
     top: calc(5px + var(--height-heading));
     padding: 20px;
@@ -102,6 +108,14 @@ body {
     fill: var(--color-hover-menu-button);
 }
 
+.note-app__menu__button i:active {
+    color: var(--color-active-menu-button);
+}
+
+.note-app__menu__button svg:active {
+    fill: var(--color-active-menu-button);
+}
+
 .note-app__menu__button i {
     display: block !important;
 }
@@ -111,6 +125,51 @@ body {
     fill: var(--color-menu-button);
 }
 
+.note-app__menu__button[datatitle]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.2s;
+    visibility: visible;
+}
+
+.note-app__menu__button[datatitle]:after {
+    content: attr(datatitle);
+    background-color: var(--color-active-menu-button);
+    color: var(--white);
+    font-size: 0.8rem;
+    text-wrap: nowrap;
+    position: relative;
+    z-index: 100;
+    left: 30px;
+    bottom: 13px;
+    padding: 3px;
+    border-radius: 3px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.note-app__menu__button:first-child[datatitle]:after {
+    /* border: 2px solid black; */
+    bottom: 20px;
+
+}
 
 
+/* ================ note-app__content ================ */
+.note-app__content {
+    width: calc(100vw - var(--width-menu));
+    height: calc(100vh - var(--height-heading));
+    background-color: var(--bg-color-content);
+    position: relative;
+    top: calc(var(--height-heading) + 5px);
+    left: calc(var(--width-menu) + 0px);
+    /* border-left: 2px solid var(--text-color-heading); */
+    border-top-left-radius: 10px;
+    z-index: 1;
+    display: none;
+}
 
+
+/*
+z-index
+.note-app__menu__button[title]:after    : 100
+*/

@@ -1,4 +1,6 @@
 import React from "react";
+import NotesMenu from "./NotesMenu";
+import FeatherIcon from "./icon/FeatherIcon";
 
 class PersonalNotes extends React.Component {
     constructor(props) {
@@ -9,12 +11,14 @@ class PersonalNotes extends React.Component {
         return (
             <div className="personal-notes">
                 <header className="note-app__header">
-                    <button className="note-app__menu-button"><i className="fa-solid fa-bars"></i></button>
-                    <h2>Personal Notes</h2>
+                    <h2>
+                        <span>Personal Notes  </span>
+                        <FeatherIcon />
+                    </h2>
                 </header>
                 <main className="note-app__body">
-                    <div className="notes-menu"></div>
-                    <div className="content"></div>
+                    <NotesMenu />
+                    <div className="note-app__content"></div>
                 </main>
             </div>
         )

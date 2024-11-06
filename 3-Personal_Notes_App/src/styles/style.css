@@ -5,39 +5,112 @@
 }
 
 :root {
+    /* ====color==== */
     --orange: #f45d48;
     --green: #078080;
     --black: #222525;
     --white: #fffffe;
     --white-orange-1: #f8f5f2;
     --white-orange-2: #FEEFE8;
-
-    --bg-color-heading: var(--orange);
+    /* text color */
     --light-color-text: var(--white);
     --dark-color-text: var(--black);
+    --text-color-heading: var(--orange);
+    /* bg color */
+    --bg-color-heading: var(--white);
+    --bg-color-menu: var(--white-orange-2);
+    --bg-color-body: var(--orange);
+    /* button color */
+    --color-menu-button: var(--orange);
+    --color-hover-menu-button: var(--white);
+    --color-active-menu-button: var(--green);
+
+    /* ====size==== */
+    --height-heading: 60px;
+
 }
+
+body {
+    background-color: var(--bg-color-body);
+}
+
+
 
 .note-app__header {
     background-color: var(--bg-color-heading);
     width: 100vw;
-    height: 50px;
-    display: flex;
+    height: var(--height-heading);
     padding: 10px;
     position: fixed;
-}
-
-.note-app__header button {
-    display: block;
-    flex-grow: 0;
-    width: 30px;
-    background-color: transparent;
-    border: none;
-    font-size: 1.3rem;
-    color: var(--light-color-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    /* border-bottom: 5px solid var(--orange); */
 }
 
 .note-app__header h2 {
-    color: var(--light-color-text);
-    text-align: center;
-    flex-grow: 1;
+    color: var(--text-color-heading);
+    /* text-decoration: underline; */
 }
+
+.note-app__header h2 span {
+    margin-right: 5px;
+    border-bottom: 1px solid var(--text-color-heading);
+
+}
+
+.note-app__header h2 .icon-componenet {
+    fill: var(--text-color-heading);
+    /* width: 26px; */
+    position: relative;
+    right: 7px;
+    top: 6px
+}
+
+.note-app__menu {
+    position: fixed;
+    /* background-color: var(--white-orange-2note-app__menu); */
+    background-color: var(--bg-color-menu);
+    width: 70px;
+    height: calc(100vh - var(--height-heading));
+    top: calc(5px + var(--height-heading));
+    padding: 20px;
+    border-right: 2px solid var(--text-color-heading);
+    border-top-right-radius: 10px;
+    /* display: flex;
+    flex-direction: column;
+    gap: 10px; */
+}
+
+.note-app__menu__button {
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+    color: var(--color-menu-button);
+    margin-bottom: 20px;
+    width: 26px;
+    height: 26px;
+    margin-inline: auto;
+}
+
+.note-app__menu__button i:hover {
+    color: var(--color-hover-menu-button);
+}
+
+.note-app__menu__button svg:hover {
+    fill: var(--color-hover-menu-button);
+}
+
+.note-app__menu__button i {
+    display: block !important;
+}
+
+.note-app__menu__button svg {
+    width: 26px;
+    fill: var(--color-menu-button);
+}
+
+
+
+

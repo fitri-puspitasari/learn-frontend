@@ -25,6 +25,7 @@
     --bg-color-heading: var(--white);
     --bg-color-menu: var(--white-orange-2);
     --bg-color-content: var(--white-orange-2);
+    --bg-color-input: var(--white);
     --bg-color-focus-input: var(--white-orange-1);
     --bg-color-footer: var(--white-orange-2);
     /* button color */
@@ -35,6 +36,7 @@
     /* ====size==== */
     --height-heading: 60px;
     --width-menu: 70px;
+    --height-footer: 50px;
 }
 
 body {
@@ -111,11 +113,12 @@ body {
     /* background-color: var(--white-orange-2note-app__menu); */
     background-color: var(--bg-color-menu);
     width: var(--width-menu);
-    height: calc(100vh - var(--height-heading));
+    height: calc(100vh - var(--height-heading) - var(--height-footer));
     top: var(--height-heading);
     padding: 20px;
     border-right: 2px solid var(--text-color-heading-footer);
     border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -189,17 +192,24 @@ body {
 /* ================ note-app__content ================ */
 .note-app__content {
     width: calc(100vw - var(--width-menu));
-    height: calc(100vh - var(--height-heading));
+    /* min-height: calc(100vh - var(--height-heading)); */
+    height: calc(100vh - var(--height-heading) - var(--height-footer));
+    /* height: fit-content; */
     background-color: var(--bg-color-content);
-    position: relative;
+    position: fixed;
     top: var(--height-heading);
     left: var(--width-menu);
     border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     /* z-index: 1; */
 }
 
 .note-app__content > * {
     padding: 50px;
+}
+
+.note-app__content > div {
+    overflow-y: auto;
 }
 
 .note-app__content h3 {
@@ -216,18 +226,21 @@ body {
 
 }
 
-.note-input__title {
+.note-input__text-areas {
     order: 1;
+    background-color: var(--bg-color-input);
 }
 
 .note-input__title input{
     font-size: 1.2rem;
-    width: calc(100vw - var(--width-menu) - 62px);
-    
+    font-weight: bold;
 }
 
-.note-input__content {
-    order: 2;
+.note-input__title p{
+    font-size: 0.8rem;
+    display: block;
+    padding: 0px 10px 10px;
+    opacity: 0;
 }
 
 .note-input__content textarea{
@@ -241,9 +254,10 @@ body {
 .note-input__title input,
 .note-input__content textarea {
     border: none;
-    /* background-color: transparent; */
+    background-color: var(--bg-color-input);
     padding: 10px;
-    width: calc(100vw - var(--width-menu) - 60px);
+    /* width: calc(100vw - var(--width-menu) - 60px); */
+    width: 100%;
 
 }
 
@@ -269,6 +283,27 @@ body {
 
 
 
+/* ================ note-app__content writing-area ================ */
+
+.note-item {
+    width: 300px;
+    /* height: 100px; */
+    background-color: var(--green);
+}
+
+
+
+
+
+
+
+
+
+/* test note-app__content */
+.note-content__writing-area {
+    display: none;
+}
+
 
 
 
@@ -280,13 +315,15 @@ body {
     bottom: 0;
     right: 0;
     background-color: var(--bg-color-footer);
-    height: 50px;
-    width: calc(100vw - var(--width-menu));
+    height: var(--height-footer);
+    /* width: calc(100vw - var(--width-menu)); */
+    width: 100vw;
     color: var(--text-color-heading-footer);
     font-size: 0.9rem;
     text-align: center;
     font-weight: bold;
     line-height: 50px;
+    border-top: 5px solid var(--bg-color-body);
 }
 
 .note-app__footer a {

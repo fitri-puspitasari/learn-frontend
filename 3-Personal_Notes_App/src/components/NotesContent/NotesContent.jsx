@@ -10,10 +10,12 @@ class NotesContent extends React.Component {
     render() {
         return (
             <div className="note-app__content">
-                <NotesWritingArea />
-                <NotesListArea />
-                {/* <NotesArchiveArea />
-                <NotesSearchArea /> */}
+                <div>
+                    <NotesWritingArea />
+                    <NotesListArea />
+                    {/* <NotesArchiveArea />
+                    <NotesSearchArea /> */}
+                </div>
             </div>
         )
     }

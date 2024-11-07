@@ -1,6 +1,7 @@
 import React from "react";
 import NotesWritingArea from "./NotesWritingArea";
 import NotesListArea from "./NotesListArea";
+import NotesArchiveArea from "./NotesArchiveArea";
 
 class NotesContent extends React.Component {
     constructor(props) {
@@ -10,12 +11,10 @@ class NotesContent extends React.Component {
     render() {
         return (
             <div className="note-app__content">
-                <div>
-                    <NotesWritingArea />
-                    <NotesListArea />
-                    {/* <NotesArchiveArea />
-                    <NotesSearchArea /> */}
-                </div>
+                <NotesWritingArea />
+                <NotesListArea />
+                <NotesArchiveArea />
+                {/* <NotesSearchArea /> */}
             </div>
         )
     }

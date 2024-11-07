@@ -14,7 +14,6 @@ class NotesWritingArea extends React.Component {
                         <input type="text" name="title" placeholder="Judul" maxLength={50} required/>
                     </div>
                     <div className="note-input__content">
-                        {/* <input type="text" name="content" placeholder="Isi catatan"/> */}
                         <textarea name="content" placeholder="Isi catatan" required></textarea>
                     </div>
                     <div className="note-input__buttons">

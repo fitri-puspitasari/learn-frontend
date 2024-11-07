@@ -1,7 +1,7 @@
 import React from "react";
-import NotesMenu from "./NotesMenu";
 import FeatherIcon from "./icon/FeatherIcon";
-import NotesContent from "./NotesContent";
+import NotesMenu from "./NotesMenu/NotesMenu";
+import NotesContent from "./NotesContent/NotesContent";
 
 class PersonalNotes extends React.Component {
     constructor(props) {
@@ -21,6 +21,9 @@ class PersonalNotes extends React.Component {
                     <NotesMenu />
                     <NotesContent />
                 </main>
+                <footer className="note-app__footer">
+                    <p>&#169; <a href="https://github.com/fitri-puspitasari">Fitri Puspitasari</a> 2024</p>
+                </footer>
             </div>
         )
     }

@@ -1,5 +1,5 @@
 import React from "react";
-import FeatherIcon from "./icon/FeatherIcon";
+import FeatherIcon from "../icon/FeatherIcon";
 
 // class NotesMenuButton extends React.Component {
 //     constructor(props) {

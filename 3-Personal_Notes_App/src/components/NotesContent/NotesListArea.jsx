@@ -1,6 +1,6 @@
 import React from "react";
 
-class NotesSearchArea extends React.Component {
+class NotesListArea extends React.Component {
     constructor(props) {
         super(props);
         
@@ -10,4 +10,4 @@ class NotesSearchArea extends React.Component {
     }
 }
 
-export default NotesWritingArea;
+export default NotesListArea;

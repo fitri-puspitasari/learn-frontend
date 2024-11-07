@@ -19,20 +19,19 @@
     /* text color */
     --light-color-text: var(--white);
     --dark-color-text: var(--black);
-    --text-color-heading: var(--orange);
+    --text-color-heading-footer: var(--orange);
     /* bg color */
     --bg-color-body: var(--orange);
     --bg-color-heading: var(--white);
     --bg-color-menu: var(--white-orange-2);
     --bg-color-content: var(--white-orange-2);
     --bg-color-focus-input: var(--white-orange-1);
-    /* --bg-color-heading: var(--white-orange-2);
-    --bg-color-menu: var(--white-orange-2);
-    --bg-color-content: var(--white); */
+    --bg-color-footer: var(--white-orange-2);
     /* button color */
     --color-menu-button: var(--orange);
     --color-hover-menu-button: var(--light-green-3);
     --color-active-menu-button: var(--green);
+    
     /* ====size==== */
     --height-heading: 60px;
     --width-menu: 70px;
@@ -87,18 +86,18 @@ body {
 }
 
 .note-app__header h2 {
-    color: var(--text-color-heading);
+    color: var(--text-color-heading-footer);
     /* text-decoration: underline; */
 }
 
 .note-app__header h2 span {
     margin-right: 5px;
-    border-bottom: 1px solid var(--text-color-heading);
+    border-bottom: 1px solid var(--text-color-heading-footer);
 
 }
 
 .note-app__header h2 .icon-componenet {
-    fill: var(--text-color-heading);
+    fill: var(--text-color-heading-footer);
     /* width: 26px; */
     position: relative;
     right: 7px;
@@ -115,7 +114,7 @@ body {
     height: calc(100vh - var(--height-heading));
     top: var(--height-heading);
     padding: 20px;
-    border-right: 2px solid var(--text-color-heading);
+    border-right: 2px solid var(--text-color-heading-footer);
     border-top-right-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -200,13 +199,15 @@ body {
 }
 
 .note-app__content > * {
-    padding: 30px;
+    padding: 50px;
 }
 
 .note-app__content h3 {
     font-size: 1.3rem;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
+
+/* ================ note-app__content writing-area ================ */
 
 .note-input  {
     display: flex;
@@ -264,6 +265,36 @@ body {
     margin-right: 10px;
     /* font-family: "Quicksand", sans-serif; */
 }
+
+
+
+
+
+
+
+
+/* ================ note-app__footer ================ */
+
+.note-app__footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: var(--bg-color-footer);
+    height: 50px;
+    width: calc(100vw - var(--width-menu));
+    color: var(--text-color-heading-footer);
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: bold;
+    line-height: 50px;
+}
+
+.note-app__footer a {
+    color: var(--text-color-heading-footer);
+    text-decoration: none;
+}
+
+
 
 
 

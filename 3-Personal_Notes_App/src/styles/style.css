@@ -289,9 +289,11 @@ body {
 
 
 /* ================ note-content__list-area ================ */
+/* ================ note-content__archive-area ================ */
 
 .note-content__list-area,
-.note-content__archive-area {
+.note-content__archive-area,
+.note-content__search-area {
     width: 100%;
     height: 100%;
     padding-bottom: 50px;
@@ -317,19 +319,79 @@ body {
 }
 
 
-/* ================ note-content__archive-area ================ */
+/* ================ note-content__search-area ================ */
 
-.note-content__archive-area {
+/* .note-content__search-area */
+
+.note-content__search-input {
+    margin-bottom: 20px;
+}
+
+.note-content__search-result {
+    width: 100%;
+    height: calc(100% - 107px);
+    /* height: 100%; */
+    display: flex;
+    gap: 100px;
+    /* padding-bottom: 20px; */
+}
+
+.note-content__search-result > * {
+    flex: 1 1 0;
 
 }
 
+.note-content__search-result h4 {
+    margin-bottom: 20px;
+    text-align: center;
+}
 
+.note-content__search-result .notes-list {
+    overflow-y: auto;
+    /* background-color: black; */
+    /* grid-template-columns: 1fr 1fr !important; */
+    /* grid-template-columns: repeat(auto-fit, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 
+    gap: 20px;
+    /* width: fit-content; */
+}
+
+.note-content__search-input input,
+.note-content__search-input button {
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: 1px solid var(--black);
+}
+
+.note-content__search-input input {
+    background-color: var(--white);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 300px;
+}
+
+.note-content__search-input input:focus {
+    outline: none;
+}
+
+.note-content__search-input button {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: none;
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.note-content__search-input button:hover {
+    background-color: var(--green);
+}
 
 
 /* test note-app__content */
 .note-content__writing-area,
-.note-content__list-area {
+.note-content__list-area,
+.note-content__archive-area {
     display: none;
 }
 

@@ -16,18 +16,17 @@ import FeatherIcon from "../icon/FeatherIcon";
 //     }
 // }
 
-function NotesMenuButton({iconClass, buttonText, buttonCLass}) {
+function NotesMenuButton({iconClass, buttonText, onChangePage, pageContent, isActive}) {
+    const className = (isActive) ?  "note-app__menu__button button-active" : "note-app__menu__button button-inactive"
     if(iconClass == "feather-component") {
         return (
-            // <button className={`"note-app__menu__button" ${buttonCLass}`}>
-            <button className="note-app__menu__button" datatitle={buttonText}>
+            <button className={className} datatitle={buttonText} onClick={() => onChangePage(pageContent)}>
                 <FeatherIcon />
             </button>
         )
     }else{
         return (
-            // <button className={`"note-app__menu__button" ${buttonCLass}`}>
-            <button className="note-app__menu__button" datatitle={buttonText}>
+            <button className={className} datatitle={buttonText} onClick={() => onChangePage(pageContent)}>
                 <i className={iconClass}></i>
             </button>
         )

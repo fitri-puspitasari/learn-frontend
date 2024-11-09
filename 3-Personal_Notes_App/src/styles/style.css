@@ -30,7 +30,7 @@
     --bg-color-footer: var(--white-orange-2);
     /* button color */
     --color-menu-button: var(--orange);
-    --color-hover-menu-button: var(--light-green-3);
+    --color-hover-menu-button: var(--light-green-2);
     --color-active-menu-button: var(--green);
     
     /* ====size==== */
@@ -128,27 +128,10 @@ body {
     font-size: 1.5rem;
     background-color: transparent;
     border: none;
-    color: var(--color-menu-button);
     margin-bottom: 20px;
     width: 26px;
     height: 26px;
     margin-inline: auto;
-}
-
-.note-app__menu__button i:hover {
-    color: var(--color-hover-menu-button);
-}
-
-.note-app__menu__button svg:hover {
-    fill: var(--color-hover-menu-button);
-}
-
-.note-app__menu__button i:active {
-    color: var(--color-active-menu-button);
-}
-
-.note-app__menu__button svg:active {
-    fill: var(--color-active-menu-button);
 }
 
 .note-app__menu__button i {
@@ -157,11 +140,25 @@ body {
 
 .note-app__menu__button svg {
     width: 26px;
+}
+
+.button-inactive i, .button-inactive svg{
+    color: var(--color-menu-button);
     fill: var(--color-menu-button);
 }
 
-/* 
+.button-active i, .button-active svg{
+    color: var(--color-active-menu-button);
+    fill: var(--color-active-menu-button);
+}
 
+.button-inactive i:hover,
+.button-inactive svg:hover {
+    color: var(--color-hover-menu-button);
+    fill: var(--color-hover-menu-button);
+}
+
+/* 
 .note-app__menu__button[datatitle]:hover:after {
     opacity: 1;
     transition: all 0.1s ease 0.2s;
@@ -388,12 +385,20 @@ body {
 }
 
 
+
+
+
+
+
+
+
 /* test note-app__content */
-.note-content__writing-area,
-.note-content__list-area,
-.note-content__archive-area {
+/* .note-content__writing-area, */
+/* .note-content__list-area,
+.note-content__archive-area,
+.note-content__search-area {
     display: none;
-}
+} */
 
 
 

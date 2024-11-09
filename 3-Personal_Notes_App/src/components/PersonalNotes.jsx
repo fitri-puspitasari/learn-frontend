@@ -6,7 +6,18 @@ import NotesContent from "./NotesContent/NotesContent";
 class PersonalNotes extends React.Component {
     constructor(props) {
         super(props);
-
+        this.state = {
+            pageContentActive: "writing-area"   // opt: writing-area, list-area, archive-area, search-area
+        };
+        this.onChangePage = this.onChangePage.bind(this);
+    }
+    onChangePage(area) {
+        this.setState(() => {
+            return {
+                pageContentActive: area
+            }
+        })
+        // console.log(this.state.pageContentActive)
     }
     render() {
         return (
@@ -18,8 +29,8 @@ class PersonalNotes extends React.Component {
                     </h2>
                 </header>
                 <main className="note-app__body">
-                    <NotesMenu />
-                    <NotesContent />
+                    <NotesMenu pageActive={this.state.pageContentActive} onChangePage={this.onChangePage}/>
+                    <NotesContent pageActive={this.state.pageContentActive} />
                 </main>
                 <footer className="note-app__footer">
                     <p>&#169; <a href="https://github.com/fitri-puspitasari">Fitri Puspitasari</a> 2024</p>

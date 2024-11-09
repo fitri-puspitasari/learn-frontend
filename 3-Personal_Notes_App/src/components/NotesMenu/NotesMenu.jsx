@@ -25,12 +25,12 @@ import NotesMenuButton from "./NotesMenuButton";
 //     }
 // }
 
-function NotesMenu() {
+function NotesMenu({ pageActive, onChangePage }) {
     const buttonInfo = [
-        {iconClass: "feather-component", buttonText: "Tulis Catatan", buttonCLass:"write-button"},
-        {iconClass: "fa-solid fa-file-lines", buttonText: "Catatan Aktif", buttonCLass:"note-button"},
-        {iconClass: "fa-solid fa-box-archive", buttonText: "Arsip", buttonCLass:"archive-button"},
-        {iconClass: "fa-solid fa-magnifying-glass", buttonText: "Cari Catatan", buttonCLass:"search-button"},
+        {iconClass: "feather-component", buttonText: "Tulis Catatan", pageContent: "writing-area"},
+        {iconClass: "fa-solid fa-file-lines", buttonText: "Catatan Aktif", pageContent: "list-area"},
+        {iconClass: "fa-solid fa-box-archive", buttonText: "Arsip", pageContent: "archive-area"},
+        {iconClass: "fa-solid fa-magnifying-glass", buttonText: "Cari Catatan", pageContent: "search-area"},
     ]
     return (
         <div className="note-app__menu">
@@ -39,7 +39,9 @@ function NotesMenu() {
                     key={index} 
                     iconClass={info.iconClass} 
                     buttonText={info.buttonText} 
-                    buttonCLass={info.buttonCLass}
+                    onChangePage={onChangePage}
+                    pageContent={info.pageContent}
+                    isActive={pageActive == info.pageContent}
                 />
             ))}
         </div>

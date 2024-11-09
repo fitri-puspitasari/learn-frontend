@@ -11,7 +11,7 @@ class NotesSearchArea extends React.Component {
                 <h3>Cari Catatan</h3>
                 <form className="note-content__search-input">
                     <input type="text" name="title" placeholder="Keyword judul" maxLength={50} required/>
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button type="submit"><i className="fa-solid fa-magnifying-glass"></i></button>
                 </form>
                 <div className="note-content__search-result">
                     <div className="search-result__active-notes">

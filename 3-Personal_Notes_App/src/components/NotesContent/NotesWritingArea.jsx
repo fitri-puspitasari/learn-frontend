@@ -4,6 +4,14 @@ class NotesWritingArea extends React.Component {
     constructor(props) {
         super(props);
         
+        // {
+        //     id: number | string,
+        //     title: string,
+        //     body: string,
+        //     archived: boolean, 
+        //     createdAt: string,
+        // }
+
     }
     render() {
         return (

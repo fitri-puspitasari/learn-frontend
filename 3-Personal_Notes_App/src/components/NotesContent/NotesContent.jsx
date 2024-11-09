@@ -32,11 +32,8 @@ class NotesContent extends React.Component {
         })
     }
     onDeleteHandler(id) {
-        
         const dataNote = this.state.dataNote.filter(data => data.id !== id);
-        console.log(dataNote)
         this.setState({ dataNote });
-        console.log(this.state)
     }
     onChangeStatusArchivedHandler(id) {
         const newData = this.state.dataNote.map(data => {
@@ -59,11 +56,24 @@ class NotesContent extends React.Component {
                         case 'writing-area':
                             return <NotesWritingArea onAddData={this.onAddDataHandler}/>
                         case 'list-area':
-                            return <NotesListArea title="Catatan Aktif" dataNote={this.state.dataNote.filter((data) => {return data.archived == false})} onChangeStatusArchived={this.onChangeStatusArchivedHandler} onDelete={this.onDeleteHandler}/>
+                            return <NotesListArea 
+                                    listClass="note-content__list-area" 
+                                    title="Catatan Aktif" 
+                                    dataNote={this.state.dataNote.filter((data) => {return data.archived == false})} 
+                                    onChangeStatusArchived={this.onChangeStatusArchivedHandler} 
+                                    onDelete={this.onDeleteHandler} />
                         case 'archive-area':
-                            return <NotesListArea title="Catatan Diarsipkan" dataNote={this.state.dataNote.filter((data) => {return data.archived == true})} onChangeStatusArchived={this.onChangeStatusArchivedHandler} onDelete={this.onDeleteHandler}/>
+                            return <NotesListArea 
+                                    listClass="note-content__list-area" 
+                                    title="Catatan Diarsipkan" 
+                                    dataNote={this.state.dataNote.filter((data) => {return data.archived == true})} 
+                                    onChangeStatusArchived={this.onChangeStatusArchivedHandler} 
+                                    onDelete={this.onDeleteHandler}/>
                         case 'search-area':
-                            return <NotesSearchArea onDelete={this.onDeleteHandler}/>
+                            return <NotesSearchArea 
+                                    dataNote={this.state.dataNote}
+                                    onChangeStatusArchived={this.onChangeStatusArchivedHandler} 
+                                    onDelete={this.onDeleteHandler}/>
                         default:
                             return null
                         }

@@ -1,10 +1,10 @@
 import React from "react";
 import { showFormattedDate } from "../../utils";
 
-function NotesListArea({ title, dataNote, onChangeStatusArchived, onDelete }) {
-    console.log(onDelete)
+function NotesListArea({ listClass, title, dataNote, onChangeStatusArchived, onDelete }) {
+    console.log(dataNote)
     return (
-        <div className="note-content__list-area">
+        <div className={listClass}>
             <h3>{title}</h3>
             <div className="notes-list">
                 {dataNote.map((data) => (

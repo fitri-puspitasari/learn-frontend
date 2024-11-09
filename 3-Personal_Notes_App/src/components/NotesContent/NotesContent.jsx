@@ -1,14 +1,19 @@
 import React from "react";
 import NotesWritingArea from "./NotesWritingArea";
 import NotesListArea from "./NotesListArea";
-import NotesArchiveArea from "./NotesArchiveArea";
 import NotesSearchArea from "./NotesSearchArea";
+import { getInitialData } from "../../utils";
 
 class NotesContent extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props)
+        console.log(getInitialData())
+        this.state = {
+            dataNote: getInitialData()
+        }
+        
     }
+
     render() {
         return (
             <div className="note-app__content">
@@ -17,9 +22,9 @@ class NotesContent extends React.Component {
                         case 'writing-area':
                             return <NotesWritingArea />
                         case 'list-area':
-                            return <NotesListArea />
+                            return <NotesListArea title="Catatan Aktif" dataNote={this.state.dataNote.filter((data) => {return data.archived == false})} />
                         case 'archive-area':
-                            return <NotesArchiveArea />
+                            return <NotesListArea title="Catatan Diarsipkan" dataNote={this.state.dataNote.filter((data) => {return data.archived == true})} />
                         case 'search-area':
                             return <NotesSearchArea />
                         default:

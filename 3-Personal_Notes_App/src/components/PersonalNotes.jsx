@@ -7,7 +7,7 @@ class PersonalNotes extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            pageContentActive: "writing-area"   // opt: writing-area, list-area, archive-area, search-area
+            pageContentActive: "list-area"   // opt: writing-area, list-area, archive-area, search-area
         };
         this.onChangePage = this.onChangePage.bind(this);
     }
@@ -17,7 +17,6 @@ class PersonalNotes extends React.Component {
                 pageContentActive: area
             }
         })
-        // console.log(this.state.pageContentActive)
     }
     render() {
         return (

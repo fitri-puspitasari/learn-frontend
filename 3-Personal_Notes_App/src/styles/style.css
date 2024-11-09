@@ -16,6 +16,7 @@
     --white: #fffffe;
     --white-orange-1: #f8f5f2;
     --white-orange-2: #FEEFE8;
+    --red: #DC3545;
     /* text color */
     --light-color-text: var(--white);
     --dark-color-text: var(--black);
@@ -32,7 +33,9 @@
     --color-menu-button: var(--orange);
     --color-hover-menu-button: var(--light-green-2);
     --color-active-menu-button: var(--green);
-    
+    /* note-item */
+    --bg-color-note-item: var(--white);
+    --border-color-note-item: var(--green);
     /* ====size==== */
     --height-heading: 60px;
     --width-menu: 70px;
@@ -43,7 +46,7 @@ body {
     background-color: var(--bg-color-body);
 }
 
-.primary-button, .neutral-button {
+.primary-button, .neutral-button, .danger-button {
     padding: 7px;
     font-weight: bold;
     border-radius: 8px;
@@ -68,6 +71,17 @@ body {
 
 .neutral-button:hover {
     background-color: var(--orange);
+    color: var(--white);
+}
+
+.danger-button {
+    background-color: var(--white);
+    color: var(--orange);
+    border: 2px solid var(--red);
+}
+
+.danger-button:hover {
+    background-color: var(--red);
     color: var(--white);
 }
 
@@ -289,7 +303,7 @@ body {
 /* ================ note-content__archive-area ================ */
 
 .note-content__list-area,
-.note-content__archive-area,
+/* .note-content__archive-area, */
 .note-content__search-area {
     width: 100%;
     height: 100%;
@@ -311,8 +325,40 @@ body {
 .note-item {
     /* width: 300px; */
     height: 350px;
-    background-color: var(--green);
-    border: 1px solid #f45d48;
+    background-color: var(--bg-color-note-item);
+    border: 2px solid var(--border-color-note-item);
+    border-radius: 15px;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note-item__title {
+    font-size: 1.15rem;
+    margin-bottom: 2px;
+}
+
+.note-item__date {
+    font-size: 0.8rem;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed var(--border-color-note-item);
+}
+
+.note-item__body {
+    font-size: 1rem;
+    height: 180px;
+    overflow-y: auto;
+}
+
+.note-item__buttons {
+    width: max-content;
+    margin-inline: auto;
+}
+
+.note-item__buttons button:first-child {
+    margin-right: 30px;
 }
 
 

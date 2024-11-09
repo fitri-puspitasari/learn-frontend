@@ -12,6 +12,25 @@ class NotesContent extends React.Component {
             dataNote: getInitialData()
         }
         this.onChangeStatusArchivedHandler = this.onChangeStatusArchivedHandler.bind(this);
+        this.onAddDataHandler = this.onAddDataHandler.bind(this);
+    }
+    onAddDataHandler({ title, body }) {
+        this.setState((prevState) => {
+            return {
+                dataNote: [
+                    ...prevState.dataNote,
+                    {
+                        id: +new Date(),
+                        title,
+                        body,
+                        archived: false,
+                        createdAt: new Date()
+                    }
+                ]
+
+            }
+        })
+        console.log(this.state)
     }
     onChangeStatusArchivedHandler(id) {
         const newData = this.state.dataNote.map(data => {
@@ -34,7 +53,7 @@ class NotesContent extends React.Component {
                 {(() => {
                     switch (this.props.pageActive) {
                         case 'writing-area':
-                            return <NotesWritingArea />
+                            return <NotesWritingArea onAddData={this.onAddDataHandler}/>
                         case 'list-area':
                             return <NotesListArea title="Catatan Aktif" dataNote={this.state.dataNote.filter((data) => {return data.archived == false})} onChangeStatusArchived={this.onChangeStatusArchivedHandler} />
                         case 'archive-area':

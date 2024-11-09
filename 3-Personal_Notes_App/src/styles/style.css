@@ -296,7 +296,11 @@ body {
     /* font-family: "Quicksand", sans-serif; */
 }
 
-
+.note-input_submit-message {
+    display: inline-block;
+    color: var(--color-active-menu-button);
+    font-weight: bold;
+}
 
 
 /* ================ note-content__list-area ================ */

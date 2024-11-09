@@ -252,11 +252,14 @@ body {
     font-weight: bold;
 }
 
+.danger-text {
+    color: var(--red);
+}
+
 .note-input__title p{
     font-size: 0.8rem;
     display: block;
     padding: 0px 10px 10px;
-    opacity: 0;
 }
 
 .note-input__content textarea{

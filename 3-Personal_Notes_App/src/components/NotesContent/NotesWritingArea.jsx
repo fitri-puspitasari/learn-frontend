@@ -6,6 +6,8 @@ class NotesWritingArea extends React.Component {
         this.state = {
             title: '',
             body: '',
+            limitTitle : 50,
+            limitTitleText : ""
         };
         this.titleSaved = "";
         this.isShowSubmitMessage = false;
@@ -20,8 +22,19 @@ class NotesWritingArea extends React.Component {
         this.setState(() => {
             return {
                 title: event.target.value,
+                limitTitle: 50 - event.target.value.length,
+                limitTitleText: `Sisa karakter: ${50 - event.target.value.length}`
             }
         })
+        if(this.hideLimitTextTimeout) clearTimeout(this.hideLimitTextTimeout);
+        this.hideLimitTextTimeout = setTimeout(() => {
+            console.log('hilang')
+            this.setState(() => {
+                return {
+                    limitTitleText: "",
+                }
+            })
+        }, 2000);
     }
     onBodyChangeEventHandler(event) {
         this.isShowSubmitMessage = false;
@@ -58,7 +71,7 @@ class NotesWritingArea extends React.Component {
                     <div className="note-input__text-areas">
                         <div className="note-input__title">
                             <input type="text" name="title" placeholder="Judul" maxLength={50} value={this.state.title} onChange={this.onTitleChangeEventHandler} required/>
-                            <p>Sisa karakter: 50</p>
+                            <p className={this.state.limitTitle < 10 ? "danger-text" : ""}>{this.state.limitTitleText}</p>
                         </div>
                         <div className="note-input__content">
                             <textarea name="content" placeholder="Isi catatan" value={this.state.body} onChange={this.onBodyChangeEventHandler} required></textarea>

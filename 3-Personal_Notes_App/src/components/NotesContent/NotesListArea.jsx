@@ -6,11 +6,11 @@ function NotesListArea({ listClass, title, dataNote, onChangeStatusArchived, onD
     return (
         <div className={listClass}>
             <h3>{title}</h3>
-            <div className="notes-list">
-                {dataNote.length == 0 ?
-                    <p className="notes-list__empty-note-message">Tidak ada catatan</p>
-                    :
-                    dataNote.map((data) => (
+            {dataNote.length == 0 ?
+                <p className="notes-list__empty-note-message">Tidak ada catatan</p>
+                :
+                <div className="notes-list">
+                    {dataNote.map((data) => (
                         <div className="note-item" key={data.id}>
                             <div className="note-item__texts">
                                 <h5 className="note-item__title">{data.title}</h5>
@@ -22,10 +22,9 @@ function NotesListArea({ listClass, title, dataNote, onChangeStatusArchived, onD
                                 <button className="danger-button" onClick={() => onDelete(data.id)}>Hapus</button>
                             </div>
                         </div>
-                    ))
-                }
-                
+                    ))}
             </div>
+            }
         </div>
     )
 }

@@ -3,13 +3,6 @@ import React from "react";
 class NotesWritingArea extends React.Component {
     constructor(props) {
         super(props);
-        // {
-        //     id: number | string,
-        //     title: string,
-        //     body: string,
-        //     archived: boolean, 
-        //     createdAt: string,
-        // }
         this.state = {
             title: '',
             body: '',
@@ -21,7 +14,6 @@ class NotesWritingArea extends React.Component {
         this.onSubmitEventHandler = this.onSubmitEventHandler.bind(this);
         this.onResetEventHandler = this.onResetEventHandler.bind(this);
         this.resetData = this.resetData.bind(this);
-
     }
     onTitleChangeEventHandler(event) {
         this.isShowSubmitMessage = false;
@@ -58,7 +50,6 @@ class NotesWritingArea extends React.Component {
             }
         })
     }
-    
     render() {
         return (
             <div className="note-content__writing-area">
@@ -77,9 +68,7 @@ class NotesWritingArea extends React.Component {
                         <button type="reset" className="neutral-button" onClick={this.onResetEventHandler}>Reset</button>
                         <button type="submit" className="primary-button">Simpan</button>
                         {this.isShowSubmitMessage ? <p className="note-input_submit-message">Catatan "{this.titleSaved}" berhasil disimpan!</p> : null}
-                        
                     </div>
-
                 </form>
             </div>
         )

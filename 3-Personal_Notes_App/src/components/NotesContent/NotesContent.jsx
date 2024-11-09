@@ -7,12 +7,12 @@ import { getInitialData } from "../../utils";
 class NotesContent extends React.Component {
     constructor(props) {
         super(props);
-        console.log(getInitialData())
         this.state = {
             dataNote: getInitialData()
         }
         this.onChangeStatusArchivedHandler = this.onChangeStatusArchivedHandler.bind(this);
         this.onAddDataHandler = this.onAddDataHandler.bind(this);
+        this.onDeleteHandler = this.onDeleteHandler.bind(this);
     }
     onAddDataHandler({ title, body }) {
         this.setState((prevState) => {
@@ -30,6 +30,12 @@ class NotesContent extends React.Component {
 
             }
         })
+    }
+    onDeleteHandler(id) {
+        
+        const dataNote = this.state.dataNote.filter(data => data.id !== id);
+        console.log(dataNote)
+        this.setState({ dataNote });
         console.log(this.state)
     }
     onChangeStatusArchivedHandler(id) {
@@ -39,13 +45,11 @@ class NotesContent extends React.Component {
             }
             return data;
         });
-        // console.log(newData)
         this.setState(() => {
             return {
                 dataNote: newData
             }
         })
-        console.log(this.state.dataNote)
     }
     render() {
         return (
@@ -55,11 +59,11 @@ class NotesContent extends React.Component {
                         case 'writing-area':
                             return <NotesWritingArea onAddData={this.onAddDataHandler}/>
                         case 'list-area':
-                            return <NotesListArea title="Catatan Aktif" dataNote={this.state.dataNote.filter((data) => {return data.archived == false})} onChangeStatusArchived={this.onChangeStatusArchivedHandler} />
+                            return <NotesListArea title="Catatan Aktif" dataNote={this.state.dataNote.filter((data) => {return data.archived == false})} onChangeStatusArchived={this.onChangeStatusArchivedHandler} onDelete={this.onDeleteHandler}/>
                         case 'archive-area':
-                            return <NotesListArea title="Catatan Diarsipkan" dataNote={this.state.dataNote.filter((data) => {return data.archived == true})} onChangeStatusArchived={this.onChangeStatusArchivedHandler} />
+                            return <NotesListArea title="Catatan Diarsipkan" dataNote={this.state.dataNote.filter((data) => {return data.archived == true})} onChangeStatusArchived={this.onChangeStatusArchivedHandler} onDelete={this.onDeleteHandler}/>
                         case 'search-area':
-                            return <NotesSearchArea />
+                            return <NotesSearchArea onDelete={this.onDeleteHandler}/>
                         default:
                             return null
                         }

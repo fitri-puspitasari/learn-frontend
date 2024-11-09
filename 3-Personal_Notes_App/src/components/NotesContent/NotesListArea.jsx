@@ -1,11 +1,8 @@
 import React from "react";
 import { showFormattedDate } from "../../utils";
 
-function NotesListArea({ title, dataNote, onChangeStatusArchived }) {
-    console.log(title)
-    console.log(dataNote)
-    console.log(onChangeStatusArchived)
-    console.log("-----------")
+function NotesListArea({ title, dataNote, onChangeStatusArchived, onDelete }) {
+    console.log(onDelete)
     return (
         <div className="note-content__list-area">
             <h3>{title}</h3>
@@ -19,7 +16,7 @@ function NotesListArea({ title, dataNote, onChangeStatusArchived }) {
                         </div>
                         <div className="note-item__buttons">
                             <button className="primary-button" onClick={() => onChangeStatusArchived(data.id)}>{title == "Catatan Aktif" ? "Arsipkan" : "Pindahkan"}</button>
-                            <button className="danger-button">Hapus</button>
+                            <button className="danger-button" onClick={() => onDelete(data.id)}>Hapus</button>
                         </div>
                     </div>
                 ))}

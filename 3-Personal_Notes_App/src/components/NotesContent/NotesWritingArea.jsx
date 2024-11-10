@@ -28,7 +28,6 @@ class NotesWritingArea extends React.Component {
         })
         if(this.hideLimitTextTimeout) clearTimeout(this.hideLimitTextTimeout);
         this.hideLimitTextTimeout = setTimeout(() => {
-            console.log('hilang')
             this.setState(() => {
                 return {
                     limitTitleText: "",

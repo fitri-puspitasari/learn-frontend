@@ -2,7 +2,7 @@ import React from "react";
 import { showFormattedDate } from "../../utils";
 
 function NotesListArea({ listClass, title, dataNote, onChangeStatusArchived, onDelete }) {
-    console.log(dataNote)
+    // console.log(dataNote)
     return (
         <div className={listClass}>
             <h3>{title}</h3>

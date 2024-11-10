@@ -8,11 +8,14 @@ class NotesContent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataNote: getInitialData()
+            dataNote: getInitialData(),
+            isShowDeleteDialog: false,
+            idNoteToBeDeleted: ''
         }
         this.onChangeStatusArchivedHandler = this.onChangeStatusArchivedHandler.bind(this);
         this.onAddDataHandler = this.onAddDataHandler.bind(this);
         this.onDeleteHandler = this.onDeleteHandler.bind(this);
+        this.deleteData = this.deleteData.bind(this);
     }
     onAddDataHandler({ title, body }) {
         this.setState((prevState) => {
@@ -32,8 +35,28 @@ class NotesContent extends React.Component {
         })
     }
     onDeleteHandler(id) {
-        const dataNote = this.state.dataNote.filter(data => data.id !== id);
-        this.setState({ dataNote });
+        this.setState(() => {
+            return {
+                isShowDeleteDialog: true,
+                idNoteToBeDeleted: id
+            }
+        })
+        // console.log(this.state)
+    }
+    deleteData(id) {
+        console.log(id)
+        if(id !== '') {
+            const dataNote = this.state.dataNote.filter(data => data.id !== id);
+            this.setState({ dataNote });
+        }
+        
+        this.setState(() => {
+            return {
+                isShowDeleteDialog: false,
+                idNoteToBeDeleted: ''
+            }
+        })
+        console.log(this.state)
     }
     onChangeStatusArchivedHandler(id) {
         const newData = this.state.dataNote.map(data => {
@@ -50,7 +73,7 @@ class NotesContent extends React.Component {
     }
     render() {
         return (
-            <div className="note-app__content">
+            <div className={`note-app__content${this.state.isShowDeleteDialog ? ` top-element` : ``}`}>
                 {(() => {
                     switch (this.props.pageActive) {
                         case 'writing-area':
@@ -78,6 +101,10 @@ class NotesContent extends React.Component {
                             return null
                         }
                 })()}
+                {this.state.isShowDeleteDialog ? 
+                    <DeleteDialog idNoteToBeDeleted={this.state.idNoteToBeDeleted} onDelete={this.deleteData}/>
+                    :
+                    null}
             </div>
         )
     }
@@ -85,3 +112,17 @@ class NotesContent extends React.Component {
 
 export default NotesContent;
 
+
+function DeleteDialog({ idNoteToBeDeleted, onDelete }) {
+    return (
+        <div className="delete-dialog__background">
+            <div className="delete-dialog">
+                <h3>Apakah Anda yakin ingin menghapus catatan ini?</h3>
+                <div className="delete-dialog__buttons">
+                    <button type="button" className="danger-button" onClick={() => onDelete(idNoteToBeDeleted)}>Ya</button>
+                    <button type="button" className="primary-button" onClick={() => onDelete('')}>Tidak</button>
+                </div>
+            </div>
+        </div>
+    )
+}

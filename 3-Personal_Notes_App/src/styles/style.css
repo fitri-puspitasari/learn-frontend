@@ -17,6 +17,17 @@
     --white-orange-1: #f8f5f2;
     --white-orange-2: #FEEFE8;
     --red: #DC3545;
+    --black-transparent: #00000042;
+    /* --black-transparent: transparent; */
+
+    /* --white: #fffffe;
+    --black: #2b2c34;
+    --purple: #6246ea;
+    --light-purple: #d1d1e9;
+    --orange: #e45858;
+    --red: #DC3545; */
+
+
     /* text color */
     --light-color-text: var(--white);
     --dark-color-text: var(--black);
@@ -96,7 +107,6 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 5px;
-    z-index: 50;
     border-bottom: 5px solid var(--bg-color-body);
     /* border-bottom: 5px solid var(--orange); */
 }
@@ -172,7 +182,7 @@ body {
     fill: var(--color-hover-menu-button);
 }
 
-/* 
+
 .note-app__menu__button[datatitle]:hover:after {
     opacity: 1;
     transition: all 0.1s ease 0.2s;
@@ -186,7 +196,7 @@ body {
     font-size: 0.8rem;
     text-wrap: nowrap;
     position: relative;
-    z-index: 100;
+    /* z-index: 100; */
     left: 30px;
     bottom: 13px;
     padding: 3px;
@@ -198,7 +208,7 @@ body {
 .note-app__menu__button:first-child[datatitle]:after {
     bottom: 20px;
 }
-*/
+
 
 /* ================ note-app__content ================ */
 .note-app__content {
@@ -212,7 +222,7 @@ body {
     left: var(--width-menu);
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    /* z-index: 1; */
+    /* z-index: 10; */
     padding: 50px;
 
 }
@@ -442,7 +452,45 @@ body {
 }
 
 
+/* ================ delete-dialog__background ================ */
 
+.delete-dialog__background {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--black-transparent);
+}
+
+.delete-dialog {
+    width: 500px;
+    height: 200px;
+    background-color: var(--white-orange-1);
+    border-radius: 20px;
+    /* border: 3px solid var(--green); */
+    box-shadow: 3px 3px 3px var(--black);
+    margin: auto;
+    margin-block: calc(50vh - 100px);
+    padding: 40px;
+}
+
+.delete-dialog h3 {
+    color: var(--red);
+    text-align: center;
+}
+
+.delete-dialog__buttons {
+    display: flex;
+    gap: 90px;
+    justify-content: center;
+}
+
+.delete-dialog__buttons button {
+    width: 90px;
+    font-size: 1rem;
+}
 
 
 
@@ -487,9 +535,40 @@ body {
 
 
 
+/* ================ setting z-index ================ */
+
+
+/* .note-app__header {
+    
+} */
+
+.note-app__menu {
+    z-index: 5;
+}
+
+/* .note-app__menu__button[datatitle]:after {
+
+} */
+
+/* .note-app__content {
+
+} */
+
+/* .delete-dialog__background {
+
+} */
+
+/* .note-app__footer {
+
+} */
+
+.top-element {
+    z-index: 10;
+}
 
 /*
 z-index
+..delete-dialog__background : 80
 .note-app__header : 50
 .note-app__menu__button[title]:after    : 100 ???
 */

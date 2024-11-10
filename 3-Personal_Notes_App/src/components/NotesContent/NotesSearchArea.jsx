@@ -11,9 +11,10 @@ class NotesSearchArea extends React.Component {
         this.onKeywordChangeEventHandler = this.onKeywordChangeEventHandler.bind(this)
     }
     getFilteredData() {
-        return (this.state.keyword == '') ? [] : this.props.dataNote.filter((data) => data.title.toLowerCase().includes(this.state.keyword))
+        return this.props.dataNote.filter((data) => data.title.toLowerCase().includes(this.state.keyword))
     }
     onKeywordChangeEventHandler(event) {
+        if (event.target.value.length > 50) return
         this.setState(() => {
             return {
                 keyword: event.target.value
@@ -26,7 +27,7 @@ class NotesSearchArea extends React.Component {
                 <h3>Cari Catatan</h3>
                 <form className="note-content__search-input">
                     <div className="search-icon"><i className="fa-solid fa-magnifying-glass"></i></div>
-                    <input type="text" name="title" placeholder="Keyword judul" maxLength={50} value={this.state.keyword} onChange={this.onKeywordChangeEventHandler} required/>
+                    <input type="text" name="title" placeholder="Keyword judul" value={this.state.keyword} onChange={this.onKeywordChangeEventHandler} required/>
                     {/* <button type="submit"><i className="fa-solid fa-magnifying-glass"></i></button> */}
                 </form>
                 <div className="note-content__search-result">

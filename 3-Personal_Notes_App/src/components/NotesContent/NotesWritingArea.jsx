@@ -18,6 +18,7 @@ class NotesWritingArea extends React.Component {
         this.resetData = this.resetData.bind(this);
     }
     onTitleChangeEventHandler(event) {
+        if (event.target.value.length > 50) return
         this.isShowSubmitMessage = false;
         this.setState(() => {
             return {
@@ -69,7 +70,7 @@ class NotesWritingArea extends React.Component {
                 <form className="note-input" onSubmit={this.onSubmitEventHandler}>
                     <div className="note-input__text-areas">
                         <div className="note-input__title">
-                            <input type="text" name="title" placeholder="Judul" maxLength={50} value={this.state.title} onChange={this.onTitleChangeEventHandler} required/>
+                            <input type="text" name="title" placeholder="Judul" value={this.state.title} onChange={this.onTitleChangeEventHandler} required/>
                             <p className={this.state.limitTitle < 10 ? "danger-text" : ""}>{this.state.limitTitleText}</p>
                         </div>
                         <div className="note-input__content">

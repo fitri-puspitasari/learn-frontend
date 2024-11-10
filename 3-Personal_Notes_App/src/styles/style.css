@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Quicksand", sans-serif;
+    scrollbar-width: thin;
 }
 
 :root {
@@ -95,6 +96,7 @@ body {
     background-color: var(--red);
     color: var(--white);
 }
+
 
 /* ================ note-app__header ================ */
 .note-app__header {
